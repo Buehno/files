@@ -1,7 +1,6 @@
-/doc1-mapa-complexidade.md
-/doc2-dpr-adr.md
-/doc3-recursos-humanos.md
-/doc4-tempo-estimado.md
-/doc5-custos-precificacao.md
-/IAgentics-GenAI-Challenge.pptx
-/iagentics_processo_selecao_pratico.html
+﻿node_modules/
+.env
+*.db
+*.log
+.DS_Store
+Thumbs.db
