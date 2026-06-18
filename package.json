@@ -1,0 +1,12 @@
+{
+  "name": "iagentics-selecao-tecnica",
+  "version": "1.0.0",
+  "description": "Processo seletivo técnico de estágio em IA — IAgentics",
+  "scripts": {
+    "start": "serve -s . -p ${PORT:-3000}",
+    "dev": "serve -s . -p 3000"
+  },
+  "dependencies": {
+    "serve": "^14.2.3"
+  }
+}
