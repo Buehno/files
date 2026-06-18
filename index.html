@@ -6,177 +6,371 @@
 <title>IAgentics — Seleção Técnica · Estágio em IA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.17.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 <style>
 :root {
-  --color-background-primary: #1a2035;
-  --color-background-secondary: #242b3d;
-  --color-background-info: rgba(102,147,248,0.10);
-  --color-background-success: rgba(52,211,153,0.10);
-  --color-background-warning: rgba(251,191,36,0.10);
-  --color-background-danger: rgba(239,68,68,0.10);
-  --color-text-primary: #dde3ef;
-  --color-text-secondary: #8895ae;
-  --color-text-tertiary: #5a6580;
-  --color-text-info: #6693f8;
-  --color-text-success: #34d399;
-  --color-text-warning: #fbbf24;
-  --color-text-danger: #f87171;
-  --color-border-primary: #2d3752;
-  --color-border-secondary: #2d3752;
-  --color-border-tertiary: #1e2a40;
-  --border-radius-sm: 6px;
-  --border-radius-md: 8px;
-  --border-radius-lg: 12px;
-  --font-sans: 'Inter', -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --bg-app:    #07080f;
+  --bg-card:   rgba(11,17,31,0.85);
+  --bg-raised: rgba(16,24,42,0.90);
+  --bg-input:  rgba(20,30,52,0.80);
+  --brand:     linear-gradient(135deg,#55afed 0%,#6693f8 45%,#7607e8 100%);
+  --c-tp: #e8edf5;
+  --c-ts: #8b9ab5;
+  --c-tt: #4d5e7a;
+  --c-info:    #6693f8;
+  --c-success: #34d399;
+  --c-warn:    #fbbf24;
+  --c-danger:  #f87171;
+  --color-background-primary:   rgba(11,17,31,0.85);
+  --color-background-secondary: rgba(16,24,42,0.90);
+  --color-background-info:      rgba(102,147,248,0.10);
+  --color-background-success:   rgba(52,211,153,0.10);
+  --color-background-warning:   rgba(251,191,36,0.10);
+  --color-background-danger:    rgba(239,68,68,0.10);
+  --color-text-primary:   #e8edf5;
+  --color-text-secondary: #8b9ab5;
+  --color-text-tertiary:  #4d5e7a;
+  --color-text-info:      #6693f8;
+  --color-text-success:   #34d399;
+  --color-text-warning:   #fbbf24;
+  --color-text-danger:    #f87171;
+  --color-border-primary:   rgba(255,255,255,0.08);
+  --color-border-secondary: rgba(255,255,255,0.05);
+  --color-border-tertiary:  rgba(255,255,255,0.04);
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --font-sans: 'Inter',-apple-system,sans-serif;
+  --font-mono: 'JetBrains Mono',monospace;
 }
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--font-sans);background:#0d1117;color:var(--color-text-primary);min-height:100vh;padding:2rem 1rem 3rem;-webkit-font-smoothing:antialiased}
-.container{max-width:900px;margin:0 auto}
+body{
+  font-family:var(--font-sans);
+  background:var(--bg-app);
+  color:var(--c-tp);
+  min-height:100vh;
+  padding:2rem 1rem 4rem;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 100% 55% at -5% 2%,rgba(85,175,237,0.07) 0%,transparent 55%),
+    radial-gradient(ellipse 70% 55% at 108% 98%,rgba(118,7,232,0.09) 0%,transparent 55%);
+}
+.container{max-width:900px;margin:0 auto;position:relative;z-index:1}
 .sr-only{position:absolute;width:1px;height:1px;clip:rect(0,0,0,0);overflow:hidden}
 
-.hdr{background:#131723;border-radius:var(--border-radius-lg);padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1.25rem}
-.hdr svg{width:130px;flex-shrink:0}
+/* ── Header ── */
+.hdr{
+  background:rgba(10,15,27,0.92);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:var(--border-radius-lg);
+  padding:1.25rem 1.5rem;
+  margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:1.25rem;
+  position:relative;overflow:hidden;
+  box-shadow:0 4px 32px rgba(0,0,0,0.45),inset 0 1px 0 rgba(255,255,255,0.04);
+}
+.hdr::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--brand);opacity:.65}
+.hdr svg{width:128px;flex-shrink:0}
 .hdr-info{flex:1}
-.hdr-title{font-size:16px;font-weight:500;color:#fff;margin-bottom:3px}
-.hdr-meta{font-size:12px;color:rgba(255,255,255,.5);display:flex;gap:1rem;flex-wrap:wrap}
-.badge{font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;background:linear-gradient(90deg,#55afed,#7607e8);color:#fff;flex-shrink:0}
+.hdr-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;letter-spacing:-.01em}
+.hdr-meta{font-size:12px;color:rgba(255,255,255,.38);display:flex;gap:1rem;flex-wrap:wrap}
+.hdr-meta i{margin-right:3px;vertical-align:middle}
+.badge{
+  font-size:11px;font-weight:700;padding:5px 13px;border-radius:9999px;letter-spacing:.04em;
+  background:var(--brand);color:#fff;flex-shrink:0;
+  box-shadow:0 0 20px rgba(102,147,248,0.4);
+}
 
-.nav-row{display:flex;gap:6px;margin-bottom:1.25rem;flex-wrap:wrap}
-.ntab{font-size:13px;font-weight:500;padding:6px 15px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-secondary);cursor:pointer;transition:all .15s}
-.ntab:hover{background:var(--color-background-secondary);color:var(--color-text-primary)}
-.ntab.on{background:#131723;color:#fff;border-color:transparent}
+/* ── Nav ── */
+.nav-row{
+  display:flex;gap:3px;margin-bottom:1.5rem;flex-wrap:wrap;
+  padding:4px;
+  background:rgba(10,15,27,0.7);
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:9999px;
+  width:fit-content;max-width:100%;
+}
+.ntab{
+  font-size:12.5px;font-weight:500;
+  padding:7px 15px;border-radius:9999px;border:none;
+  background:transparent;color:var(--c-tt);
+  cursor:pointer;transition:all .18s ease;
+  display:flex;align-items:center;gap:5px;white-space:nowrap;
+}
+.ntab i{font-size:13px}
+.ntab:hover{background:rgba(255,255,255,0.04);color:var(--c-ts)}
+.ntab.on{
+  background:linear-gradient(135deg,rgba(85,175,237,0.18),rgba(118,7,232,0.13));
+  color:#c8d5f0;
+  box-shadow:0 0 0 1px rgba(102,147,248,0.22),0 2px 12px rgba(102,147,248,0.08);
+}
 
-.pg{display:none}.pg.show{display:block}
+/* ── Pages ── */
+.pg{display:none}
+.pg.show{display:block;animation:fadeIn .18s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 
-.sec-lbl{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-tertiary);margin:1.25rem 0 .75rem}
+/* ── Section label ── */
+.sec-lbl{
+  font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--c-tt);margin:1.5rem 0 .875rem;
+  display:flex;align-items:center;gap:8px;
+}
+.sec-lbl::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0.05),transparent)}
 
-.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:.875rem}
-.card-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:.35rem}
-.card-body{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+/* ── Cards ── */
+.card{
+  background:var(--bg-card);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:var(--border-radius-lg);
+  padding:1rem 1.25rem;margin-bottom:1rem;
+  position:relative;overflow:hidden;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  box-shadow:0 2px 12px rgba(0,0,0,0.22);
+}
+.card::before{
+  content:'';position:absolute;top:0;left:15%;right:15%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(102,147,248,0.22),transparent);
+  pointer-events:none;
+}
+.card-title{font-size:14px;font-weight:600;color:var(--c-tp);margin-bottom:.5rem}
+.card-body{font-size:13px;color:var(--c-ts);line-height:1.65}
 
-.flow{display:flex;flex-direction:column;gap:0}
-.step{display:flex;gap:14px;align-items:flex-start;padding:.75rem 0}
-.step-num{width:28px;height:28px;border-radius:50%;background:#131723;color:#fff;font-size:12px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+/* ── Steps ── */
+.flow{display:flex;flex-direction:column}
+.step{display:flex;gap:14px;align-items:flex-start;padding:.875rem 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.step:last-child{border-bottom:none}
+.step-num{
+  width:28px;height:28px;border-radius:50%;flex-shrink:0;margin-top:1px;
+  background:linear-gradient(135deg,rgba(85,175,237,0.18),rgba(118,7,232,0.14));
+  border:1px solid rgba(102,147,248,0.25);
+  color:var(--c-info);font-size:12px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
 .step-body{flex:1;padding-bottom:.25rem}
-.step-head{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px}
-.step-desc{font-size:13px;color:var(--color-text-secondary);line-height:1.55}
+.step-head{font-size:14px;font-weight:600;color:var(--c-tp);margin-bottom:4px}
+.step-desc{font-size:13px;color:var(--c-ts);line-height:1.6}
 
-.pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;padding:2px 9px;border-radius:20px;margin:2px 2px 2px 0}
-.p-blue{background:var(--color-background-info);color:var(--color-text-info)}
-.p-green{background:var(--color-background-success);color:var(--color-text-success)}
-.p-amber{background:var(--color-background-warning);color:var(--color-text-warning)}
-.p-red{background:var(--color-background-danger);color:var(--color-text-danger)}
-.p-gray{background:var(--color-background-secondary);color:var(--color-text-secondary)}
+/* ── Pills ── */
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:3px 10px;border-radius:9999px;margin:2px 2px 2px 0;letter-spacing:.02em}
+.p-blue {background:rgba(102,147,248,0.12);color:#6693f8;border:1px solid rgba(102,147,248,0.2)}
+.p-green{background:rgba(52,211,153,0.10);color:#34d399;border:1px solid rgba(52,211,153,0.2)}
+.p-amber{background:rgba(251,191,36,0.10);color:#fbbf24;border:1px solid rgba(251,191,36,0.2)}
+.p-red  {background:rgba(239,68,68,0.10);color:#f87171;border:1px solid rgba(239,68,68,0.2)}
+.p-gray {background:rgba(255,255,255,0.05);color:var(--c-ts);border:1px solid rgba(255,255,255,0.08)}
 
-code{font-family:var(--font-mono);font-size:12px;background:var(--color-background-secondary);padding:1px 5px;border-radius:4px;color:var(--color-text-primary)}
-pre{font-family:var(--font-mono);font-size:12px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:.75rem 1rem;margin:.5rem 0 .75rem;overflow-x:auto;line-height:1.65;color:var(--color-text-primary);white-space:pre}
+/* ── Code ── */
+code{
+  font-family:var(--font-mono);font-size:12px;
+  background:rgba(255,255,255,0.06);
+  padding:2px 6px;border-radius:5px;
+  color:var(--c-tp);border:1px solid rgba(255,255,255,0.07);
+}
+pre{margin:.625rem 0 .875rem;border-radius:var(--border-radius-md);overflow:hidden;border:1px solid rgba(255,255,255,0.07);box-shadow:0 2px 10px rgba(0,0,0,0.25)}
+pre code{background:none;border:none;padding:0;font-size:12.5px;line-height:1.7}
+.hljs{padding:.9rem 1.1rem!important;background:#0d1117!important}
 
+/* ── Trilha grid ── */
 .trilha-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:10px;margin-bottom:1rem}
-.trilha-card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:.875rem 1rem;cursor:pointer;transition:border-color .15s}
-.trilha-card:hover{border-color:var(--color-border-primary)}
-.trilha-card.sel{border:2px solid #6693f8;background:var(--color-background-info)}
-.trilha-icon{font-size:20px;margin-bottom:6px;color:var(--color-text-secondary)}
-.trilha-card.sel .trilha-icon{color:var(--color-text-info)}
-.trilha-name{font-size:13px;font-weight:500;color:var(--color-text-primary)}
-.trilha-card.sel .trilha-name{color:var(--color-text-info)}
-.trilha-sub{font-size:11px;color:var(--color-text-tertiary);margin-top:2px}
-.trilha-card.sel .trilha-sub{color:var(--color-text-info)}
+.trilha-card{
+  border:1px solid rgba(255,255,255,0.06);border-radius:var(--border-radius-md);
+  padding:1rem;cursor:pointer;transition:all .2s ease;background:var(--bg-card);
+}
+.trilha-card:hover{border-color:rgba(102,147,248,0.3);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.25)}
+.trilha-card.sel{
+  border-color:rgba(102,147,248,0.45);
+  background:linear-gradient(135deg,rgba(102,147,248,0.08),rgba(118,7,232,0.05));
+  box-shadow:0 0 28px rgba(102,147,248,0.09),inset 0 1px 0 rgba(102,147,248,0.1);
+}
+.trilha-icon{font-size:22px;margin-bottom:8px;color:var(--c-tt)}
+.trilha-card.sel .trilha-icon{color:var(--c-info)}
+.trilha-name{font-size:13px;font-weight:700;color:var(--c-tp)}
+.trilha-card.sel .trilha-name{color:#c8d5f0}
+.trilha-sub{font-size:11px;color:var(--c-tt);margin-top:3px}
+.trilha-card.sel .trilha-sub{color:var(--c-info);opacity:.8}
 
-.desafio{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem}
-.d-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:.75rem}
-.d-tag{font-size:11px;font-weight:500;padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:2px}
-.d-title{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.45}
-.d-pts{font-size:11px;color:var(--color-text-tertiary);margin-left:auto;flex-shrink:0;padding-top:3px}
-.d-enun{font-size:13px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:.75rem}
-.d-req{font-size:12px;color:var(--color-text-tertiary);margin-bottom:.5rem}
-.req-item{display:flex;align-items:baseline;gap:6px;font-size:12.5px;color:var(--color-text-secondary);margin-bottom:4px}
-.req-item::before{content:"—";color:var(--color-text-tertiary);flex-shrink:0}
+/* ── Desafio ── */
+.desafio{border:1px solid rgba(255,255,255,0.06);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem;background:var(--bg-card)}
+.d-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:.875rem}
+.d-tag{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:9999px;flex-shrink:0;margin-top:2px}
+.d-title{font-size:14px;font-weight:700;color:var(--c-tp);line-height:1.4}
+.d-pts{font-size:13px;font-weight:700;color:var(--c-info);margin-left:auto;flex-shrink:0;padding-top:2px;font-variant-numeric:tabular-nums}
+.d-enun{font-size:13px;color:var(--c-ts);line-height:1.65;margin-bottom:.875rem}
+.d-req{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c-tt);margin-bottom:.5rem}
+.req-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--c-ts);margin-bottom:6px;line-height:1.55}
+.req-item::before{content:'';width:5px;height:5px;border-radius:50%;background:rgba(102,147,248,0.5);flex-shrink:0;margin-top:5px}
 
-.rubric-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:13px}
+/* ── Rubric ── */
+.rubric-row{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:13px}
 .rubric-row:last-child{border-bottom:none}
-.rubric-row .lbl{flex:1;color:var(--color-text-secondary)}
-.rubric-row .pts{font-weight:500;color:var(--color-text-primary);min-width:40px;text-align:right}
+.rubric-row .lbl{flex:1;color:var(--c-ts)}
+.rubric-row .pts{font-weight:700;color:var(--c-info);min-width:44px;text-align:right;font-variant-numeric:tabular-nums}
 
-.timer-bar{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:.875rem 1.25rem;display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;gap:.75rem;flex-wrap:wrap}
-.t-disp{font-size:30px;font-weight:500;color:var(--color-text-primary);font-variant-numeric:tabular-nums}
-.t-lbl{font-size:12px;color:var(--color-text-secondary)}
-.t-btns{display:flex;gap:8px}
-.t-btns button{font-size:13px;padding:6px 14px;background:var(--color-background-primary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);color:var(--color-text-primary);cursor:pointer;transition:all .15s}
-.t-btns button:hover{background:#131723;color:#fff}
-.seg-bar{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
-.seg{font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;background:var(--color-background-secondary);color:var(--color-text-tertiary);border:0.5px solid var(--color-border-tertiary)}
-.seg.done{background:#131723;color:#fff;border-color:transparent}
-.seg.active{border-color:#6693f8;color:#6693f8;background:var(--color-background-info)}
+/* ── Timer ── */
+.timer-bar{
+  background:rgba(10,15,27,0.85);border:1px solid rgba(255,255,255,0.06);
+  border-radius:var(--border-radius-lg);padding:1.1rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:1.5rem;gap:.75rem;flex-wrap:wrap;
+  backdrop-filter:blur(12px);
+}
+.t-disp{font-size:34px;font-weight:700;color:var(--c-tp);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.t-lbl{font-size:11px;color:var(--c-tt);margin-top:2px}
+.t-btns{display:flex;gap:7px}
+.t-btns button{
+  font-size:13px;font-weight:500;padding:7px 15px;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--border-radius-sm);color:var(--c-ts);
+  cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px;
+}
+.t-btns button:hover{background:rgba(102,147,248,0.1);border-color:rgba(102,147,248,0.25);color:#fff}
+.seg-bar{display:flex;gap:4px;align-items:center}
+.seg{font-size:11px;font-weight:600;padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,0.03);color:var(--c-tt);border:1px solid rgba(255,255,255,0.05);transition:all .3s}
+.seg.done{background:rgba(255,255,255,0.06);color:var(--c-ts)}
+.seg.active{border-color:rgba(102,147,248,0.4);color:#6693f8;background:rgba(102,147,248,0.08)}
 
+/* ── Matrix table ── */
 .matrix{width:100%;border-collapse:collapse;font-size:13px}
-.matrix th{text-align:left;font-size:11px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--color-text-tertiary);padding:6px 10px;border-bottom:0.5px solid var(--color-border-tertiary)}
-.matrix td{padding:8px 10px;border-bottom:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);vertical-align:top;line-height:1.5}
+.matrix th{text-align:left;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--c-tt);padding:8px 10px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.matrix td{padding:10px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--c-ts);vertical-align:top;line-height:1.55}
 .matrix tr:last-child td{border-bottom:none}
+.matrix tr:hover td{background:rgba(255,255,255,0.015)}
 
-.nota-box{background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:.75rem 1rem;margin-top:.75rem;font-size:13px;color:var(--color-text-secondary);line-height:1.6;border-left:3px solid #6693f8}
+/* ── Nota box ── */
+.nota-box{
+  background:rgba(102,147,248,0.04);
+  border:1px solid rgba(102,147,248,0.14);border-left:3px solid #6693f8;
+  border-radius:var(--border-radius-md);
+  padding:.875rem 1rem;margin-top:1rem;
+  font-size:13px;color:var(--c-ts);line-height:1.65;
+}
 
-.phase-banner{display:flex;align-items:center;gap:12px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.75rem 1rem;margin-bottom:1rem}
-.phase-icon{font-size:22px;color:var(--color-text-secondary)}
-.phase-name{font-size:13px;font-weight:500;color:var(--color-text-primary)}
-.phase-meta{font-size:12px;color:var(--color-text-tertiary)}
+/* ── Phase banner ── */
+.phase-banner{
+  display:flex;align-items:center;gap:14px;
+  background:linear-gradient(135deg,rgba(11,17,31,0.9),rgba(16,24,42,0.8));
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:var(--border-radius-md);padding:.875rem 1.25rem;margin-bottom:1.25rem;
+}
+.phase-icon{font-size:24px;color:var(--c-info)}
+.phase-name{font-size:14px;font-weight:700;color:var(--c-tp)}
+.phase-meta{font-size:12px;color:var(--c-tt);margin-top:2px}
 
-/* Quiz styles */
-.quiz-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem}
-.quiz-live{font-size:13px;font-weight:500;background:#131723;color:#fff;padding:6px 14px;border-radius:20px}
+/* ── Quiz ── */
+.quiz-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:.5rem}
+.quiz-live{
+  font-size:13px;font-weight:700;
+  background:linear-gradient(135deg,rgba(85,175,237,0.12),rgba(118,7,232,0.10));
+  border:1px solid rgba(102,147,248,0.2);color:#c8d5f0;
+  padding:6px 16px;border-radius:9999px;
+  box-shadow:0 0 18px rgba(102,147,248,0.08);
+  font-variant-numeric:tabular-nums;
+}
+.quiz-progress-bar{background:rgba(255,255,255,0.05);border-radius:9999px;height:4px;margin-bottom:1.25rem;overflow:hidden}
+.quiz-progress-fill{height:4px;border-radius:9999px;background:var(--brand);transition:width .4s cubic-bezier(.34,1.56,.64,1);width:0%}
 
-.q-area-lbl{font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin:1.25rem 0 .625rem;display:inline-block}
-.q-area-py{background:rgba(85,175,237,0.12);color:#55afed}
-.q-area-ai{background:rgba(108,102,243,0.12);color:#6c66f3}
-.q-area-sq{background:rgba(118,7,232,0.12);color:#9b5cf6}
+.q-area-lbl{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:9999px;margin:1.25rem 0 .75rem;display:inline-flex;align-items:center;gap:5px}
+.q-area-py{background:rgba(85,175,237,0.10);color:#55afed;border:1px solid rgba(85,175,237,0.2)}
+.q-area-ai{background:rgba(108,102,243,0.10);color:#6c66f3;border:1px solid rgba(108,102,243,0.2)}
+.q-area-sq{background:rgba(118,7,232,0.10);color:#9b5cf6;border:1px solid rgba(118,7,232,0.2)}
 
-.q-card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:.875rem 1.25rem;margin-bottom:.625rem;transition:border-color .2s,background .2s}
-.q-card.ok{border-color:#34d399;background:rgba(52,211,153,0.06)}
-.q-num{font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:5px}
-.q-text{font-size:13px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:.75rem}
-.q-opts{display:grid;gap:3px;margin-bottom:.75rem}
-.q-opt{display:flex;align-items:baseline;gap:8px;font-size:12.5px;color:var(--color-text-secondary);padding:4px 8px;border-radius:var(--border-radius-sm)}
-.q-opt.correct{background:var(--color-background-success);color:var(--color-text-success);font-weight:500}
-.q-lbl{font-weight:600;font-size:11px;min-width:14px;color:var(--color-text-tertiary);flex-shrink:0}
-.q-opt.correct .q-lbl{color:var(--color-text-success)}
-.q-btn{font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-tertiary);cursor:pointer;transition:all .15s}
-.q-btn:hover{background:var(--color-background-secondary);color:var(--color-text-primary)}
-.q-btn.on{background:var(--color-background-success);border-color:#34d399;color:var(--color-text-success)}
+.q-card{
+  border:1px solid rgba(255,255,255,0.06);border-radius:var(--border-radius-md);
+  padding:.875rem 1.25rem;margin-bottom:.625rem;background:var(--bg-card);
+  transition:border-color .25s,background .25s,box-shadow .25s;
+}
+.q-card:hover{border-color:rgba(255,255,255,0.09)}
+.q-card.ok{
+  border-color:rgba(52,211,153,0.38);background:rgba(52,211,153,0.04);
+  box-shadow:0 0 28px rgba(52,211,153,0.07);
+}
+.q-num{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c-tt);margin-bottom:6px}
+.q-text{font-size:13px;font-weight:500;color:var(--c-tp);line-height:1.55;margin-bottom:.875rem}
+.q-opts{display:grid;gap:3px;margin-bottom:.875rem}
+.q-opt{display:flex;align-items:baseline;gap:9px;font-size:13px;color:var(--c-ts);padding:5px 10px;border-radius:8px;transition:background .15s}
+.q-opt:hover{background:rgba(255,255,255,0.025)}
+.q-opt.correct{background:rgba(52,211,153,0.08);color:#34d399;font-weight:500;border:1px solid rgba(52,211,153,0.18)}
+.q-lbl{font-weight:700;font-size:10.5px;min-width:16px;color:var(--c-tt);flex-shrink:0}
+.q-opt.correct .q-lbl{color:#34d399}
+.q-btn{font-size:12px;font-weight:600;padding:5px 14px;border-radius:9999px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);color:var(--c-tt);cursor:pointer;transition:all .15s}
+.q-btn:hover{background:rgba(255,255,255,0.06);color:var(--c-ts)}
+.q-btn.on{background:rgba(52,211,153,0.12);border-color:rgba(52,211,153,0.35);color:#34d399;box-shadow:0 0 14px rgba(52,211,153,0.1)}
 
-.mini-row{display:flex;align-items:center;justify-content:space-between;padding:.625rem 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.mini-row{display:flex;align-items:center;justify-content:space-between;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,0.04)}
 .mini-row:last-child{border-bottom:none}
-.mini-lbl{font-size:13px;color:var(--color-text-secondary)}
-.mini-pts{font-size:11px;color:var(--color-text-tertiary);margin-left:.5rem}
-.mini-toggle{font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-tertiary);cursor:pointer;transition:all .15s}
-.mini-toggle.on{background:var(--color-background-success);border-color:#34d399;color:var(--color-text-success)}
+.mini-lbl{font-size:13px;color:var(--c-ts)}
+.mini-pts{font-size:11px;color:var(--c-tt);margin-left:.5rem}
+.mini-toggle{font-size:12px;font-weight:600;padding:5px 14px;border-radius:9999px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);color:var(--c-tt);cursor:pointer;transition:all .15s}
+.mini-toggle.on{background:rgba(52,211,153,0.12);border-color:rgba(52,211,153,0.35);color:#34d399}
 
-.quiz-total{background:#131723;border-radius:var(--border-radius-md);padding:.875rem 1.25rem;display:flex;justify-content:space-between;align-items:center;margin-top:1.25rem}
-.quiz-total .ql{font-size:13px;color:rgba(255,255,255,.5)}
-.quiz-total .qv{font-size:22px;font-weight:500;color:#fff}
+.quiz-total{
+  background:rgba(10,15,27,0.9);border:1px solid rgba(255,255,255,0.06);
+  border-radius:var(--border-radius-md);padding:1rem 1.25rem;
+  display:flex;justify-content:space-between;align-items:center;margin-top:1.25rem;
+  position:relative;overflow:hidden;
+}
+.quiz-total::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--brand);opacity:.5}
+.quiz-total .ql{font-size:13px;color:rgba(255,255,255,.35)}
+.quiz-total .qv{font-size:26px;font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
 
-/* Inputs / textarea */
-input[type=number]{background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);color:var(--color-text-primary);font-family:var(--font-sans);font-size:14px;padding:6px 10px;width:100%;transition:border-color .15s}
-input[type=number]:focus{outline:none;border-color:#6693f8}
-textarea{background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);color:var(--color-text-primary);font-family:var(--font-sans);font-size:13px;padding:.625rem .75rem;resize:vertical;width:100%;transition:border-color .15s}
-textarea:focus{outline:none;border-color:#6693f8}
+/* ── Inputs ── */
+input[type=number]{
+  background:var(--bg-input);border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--border-radius-sm);color:var(--c-tp);
+  font-family:var(--font-sans);font-size:15px;font-weight:600;
+  padding:9px 12px;width:100%;transition:border-color .15s,box-shadow .15s;
+  -moz-appearance:textfield;
+}
+input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
+input[type=number]:focus{outline:none;border-color:rgba(102,147,248,0.4);box-shadow:0 0 0 3px rgba(102,147,248,0.08)}
+textarea{
+  background:var(--bg-input);border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--border-radius-sm);color:var(--c-tp);
+  font-family:var(--font-sans);font-size:13px;
+  padding:.75rem 1rem;resize:vertical;width:100%;min-height:96px;
+  transition:border-color .15s;
+}
+textarea:focus{outline:none;border-color:rgba(102,147,248,0.4)}
+textarea::placeholder{color:var(--c-tt)}
 
-.sc-p1-auto{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;font-size:24px;font-weight:500;color:var(--color-text-primary)}
-.sc-p1-hint{font-size:11px;color:var(--color-text-tertiary);margin-top:3px}
+/* ── Rubrica score ── */
+.sc-p1-auto{
+  font-size:30px;font-weight:700;font-variant-numeric:tabular-nums;
+  background:var(--brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  padding:4px 0;
+}
+.sc-p1-hint{font-size:11px;color:var(--c-tt);margin-top:3px}
+#sc-total{font-size:30px;font-weight:700;color:var(--c-tp);font-variant-numeric:tabular-nums;padding:4px 0}
+#sc-veredicto{font-size:13px;padding:.625rem .875rem;border-radius:var(--border-radius-sm);background:rgba(255,255,255,0.03);color:var(--c-ts)}
 
-#sc-veredicto{font-size:13px;padding:.5rem .75rem;border-radius:var(--border-radius-md);background:var(--color-background-secondary);color:var(--color-text-secondary)}
+/* ── Score stat boxes (overview) ── */
+.score-grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:1rem}
+.score-stat{background:rgba(11,17,31,0.7);border:1px solid rgba(255,255,255,0.06);border-radius:var(--border-radius-md);padding:1.1rem 1rem;text-align:center}
+.score-stat.highlight{
+  background:linear-gradient(135deg,rgba(85,175,237,0.08),rgba(118,7,232,0.08));
+  border-color:rgba(102,147,248,0.18);
+}
+.score-stat .n{font-size:30px;font-weight:700;color:var(--c-tp);font-variant-numeric:tabular-nums}
+.score-stat.highlight .n{background:var(--brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.score-stat .l{font-size:11.5px;color:var(--c-tt);margin-top:4px;line-height:1.4}
 
-@media(max-width:600px){
-  body{padding:1rem .75rem 2rem}
+@media(max-width:640px){
+  body{padding:1rem .75rem 2.5rem}
   .hdr{flex-direction:column;align-items:flex-start}
   .hdr svg{width:100px}
+  .nav-row{border-radius:var(--border-radius-lg);padding:6px;width:100%;overflow-x:auto}
   .trilha-grid{grid-template-columns:1fr}
 }
 @media print{
-  body{background:#fff;color:#000;padding:0}
+  body{background:#fff;color:#000}
+  body::before{display:none}
   .nav-row,.t-btns{display:none!important}
   .pg{display:block!important}
   .hdr{background:#000;print-color-adjust:exact}
@@ -208,78 +402,61 @@ textarea:focus{outline:none;border-color:#6693f8}
   <div class="hdr-info">
     <div class="hdr-title">Processo Seletivo Técnico — Estágio em IA</div>
     <div class="hdr-meta">
-      <span><i class="ti ti-clock" aria-hidden="true"></i> 60 min · câmera + microfone ativos · aba anônima</span>
-      <span><i class="ti ti-git-branch" aria-hidden="true"></i> Avaliação modular com trilhas de profundidade</span>
+      <span><i class="ti ti-clock"></i>60 min · câmera + microfone ativos</span>
+      <span><i class="ti ti-git-branch"></i>Avaliação modular com trilhas</span>
     </div>
   </div>
-  <span class="badge">Avaliador</span>
+  <span class="badge">AVALIADOR</span>
 </div>
 
 <!-- NAV -->
-<div class="nav-row" role="tablist">
-  <button class="ntab on" onclick="go(0,this)" role="tab"><i class="ti ti-map" style="font-size:13px;margin-right:4px" aria-hidden="true"></i>Visão geral</button>
-  <button class="ntab" onclick="go(1,this)" role="tab"><i class="ti ti-clock" style="font-size:13px;margin-right:4px" aria-hidden="true"></i>Cronograma</button>
-  <button class="ntab" onclick="go(2,this)" role="tab"><i class="ti ti-list-check" style="font-size:13px;margin-right:4px" aria-hidden="true"></i>Questões</button>
-  <button class="ntab" onclick="go(3,this)" role="tab"><span style="width:8px;height:8px;border-radius:50%;background:#55afed;display:inline-block;margin-right:5px;vertical-align:middle"></span>Python</button>
-  <button class="ntab" onclick="go(4,this)" role="tab"><span style="width:8px;height:8px;border-radius:50%;background:#6c66f3;display:inline-block;margin-right:5px;vertical-align:middle"></span>IA + LLM</button>
-  <button class="ntab" onclick="go(5,this)" role="tab"><span style="width:8px;height:8px;border-radius:50%;background:#7607e8;display:inline-block;margin-right:5px;vertical-align:middle"></span>SQL + Git</button>
-  <button class="ntab" onclick="go(6,this)" role="tab"><i class="ti ti-clipboard-check" style="font-size:13px;margin-right:4px" aria-hidden="true"></i>Rubrica</button>
-</div>
+<nav class="nav-row" role="tablist">
+  <button class="ntab on" onclick="go(0,this)"><i class="ti ti-layout-dashboard"></i>Visão geral</button>
+  <button class="ntab" onclick="go(1,this)"><i class="ti ti-clock"></i>Cronograma</button>
+  <button class="ntab" onclick="go(2,this)"><i class="ti ti-list-check"></i>Questões</button>
+  <button class="ntab" onclick="go(3,this)"><i class="ti ti-brand-python"></i>Python</button>
+  <button class="ntab" onclick="go(4,this)"><i class="ti ti-brain"></i>IA + LLM</button>
+  <button class="ntab" onclick="go(5,this)"><i class="ti ti-database"></i>SQL + Git</button>
+  <button class="ntab" onclick="go(6,this)"><i class="ti ti-chart-bar"></i>Rubrica</button>
+</nav>
 
 <!-- PÁG 0: VISÃO GERAL -->
 <div class="pg show" id="p0">
   <div class="card">
     <div class="card-title">Lógica do processo</div>
-    <div class="card-body">A avaliação é dividida em duas partes sequenciais: <strong style="font-weight:500">Parte 1 — Base comum</strong> (30 min) e <strong style="font-weight:500">Parte 2 — Desafio prático por trilha</strong> (30 min). A Parte 1 inclui 12 questões conceituais e um mini-desafio integrador de debug. Na Parte 2, o candidato escolhe uma das três trilhas. Isso garante que quem domina apenas uma disciplina ainda mostre excelência nela, enquanto quem domina o conjunto completo é diferenciado pela qualidade da solução integrada.</div>
+    <div class="card-body">Avaliação em duas partes sequenciais: <strong style="color:var(--c-tp)">Parte 1 — Base comum</strong> (30 min) com 12 questões conceituais e mini-desafio de debug; e <strong style="color:var(--c-tp)">Parte 2 — Desafio prático por trilha</strong> (30 min). O candidato escolhe uma trilha, garantindo que excelência em uma disciplina seja reconhecida.</div>
   </div>
 
-  <div class="sec-lbl">Estrutura de pontuação</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:1rem">
-    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem;text-align:center">
-      <div style="font-size:24px;font-weight:500;color:var(--color-text-primary)">30</div>
-      <div style="font-size:12px;color:var(--color-text-secondary);margin-top:3px">pts — 12 questões conceituais</div>
-    </div>
-    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem;text-align:center">
-      <div style="font-size:24px;font-weight:500;color:var(--color-text-primary)">10</div>
-      <div style="font-size:12px;color:var(--color-text-secondary);margin-top:3px">pts — mini-desafio de debug</div>
-    </div>
-    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem;text-align:center">
-      <div style="font-size:24px;font-weight:500;color:var(--color-text-primary)">50</div>
-      <div style="font-size:12px;color:var(--color-text-secondary);margin-top:3px">pts — trilha escolhida</div>
-    </div>
-    <div style="background:#131723;border-radius:var(--border-radius-md);padding:1rem;text-align:center">
-      <div style="font-size:24px;font-weight:500;color:#fff">+10</div>
-      <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:3px">pts — bônus apresentação</div>
-    </div>
+  <div class="sec-lbl">Distribuição de pontos</div>
+  <div class="score-grid-4">
+    <div class="score-stat"><div class="n">30</div><div class="l">pts<br>12 questões conceituais</div></div>
+    <div class="score-stat"><div class="n">10</div><div class="l">pts<br>mini-desafio de debug</div></div>
+    <div class="score-stat"><div class="n">50</div><div class="l">pts<br>trilha prática escolhida</div></div>
+    <div class="score-stat highlight"><div class="n">+10</div><div class="l">pts<br>bônus apresentação</div></div>
   </div>
 
-  <div class="sec-lbl">Trilhas disponíveis na Parte 2</div>
+  <div class="sec-lbl">Trilhas — Parte 2</div>
   <div class="trilha-grid" id="trilha-sel">
     <div class="trilha-card" onclick="selTrilha(0,this)">
-      <div class="trilha-icon"><i class="ti ti-brand-python" aria-hidden="true"></i></div>
+      <div class="trilha-icon"><i class="ti ti-brand-python"></i></div>
       <div class="trilha-name">Python + API REST</div>
       <div class="trilha-sub">OOP · pipeline de dados · requests</div>
     </div>
     <div class="trilha-card" onclick="selTrilha(1,this)">
-      <div class="trilha-icon"><i class="ti ti-brain" aria-hidden="true"></i></div>
+      <div class="trilha-icon"><i class="ti ti-brain"></i></div>
       <div class="trilha-name">IA Generativa + LLM</div>
       <div class="trilha-sub">prompts · Claude API · RAG</div>
     </div>
     <div class="trilha-card" onclick="selTrilha(2,this)">
-      <div class="trilha-icon"><i class="ti ti-database" aria-hidden="true"></i></div>
+      <div class="trilha-icon"><i class="ti ti-database"></i></div>
       <div class="trilha-name">SQL + Git</div>
       <div class="trilha-sub">queries · joins · versionamento</div>
     </div>
   </div>
-  <div id="trilha-hint" style="font-size:12px;color:var(--color-text-tertiary);margin-top:.25rem">Clique em uma trilha para registrar a escolha do candidato antes da Parte 2.</div>
+  <div id="trilha-hint" style="font-size:12px;color:var(--c-tt);margin-top:.25rem">Clique em uma trilha para registrar a escolha do candidato antes da Parte 2.</div>
 
-  <div class="nota-box" style="margin-top:1rem">
-    <strong style="font-weight:500">Contexto da empresa:</strong> A IAgentics é parceira Anthropic e Microsoft Azure, construindo uma plataforma GenAI baseada em RAG com LlamaIndex, Qdrant e Claude como LLM primário. Os desafios refletem situações reais do trabalho de estagiários no time técnico.
-  </div>
-
-  <div class="nota-box">
-    <strong style="font-weight:500">Princípio de avaliação:</strong> o candidato que não sabe SQL mas tem excelência em Python pode ser aprovado se atingir ≥ 35/50 na trilha + ≥ 28/40 na base. O domínio de todo o conteúdo é diferencial, não pré-requisito absoluto para o estágio.
-  </div>
+  <div class="nota-box" style="margin-top:1rem"><strong style="color:var(--c-tp)">Contexto:</strong> IAgentics é parceira Anthropic e Microsoft Azure, construindo plataforma GenAI com RAG (LlamaIndex + Qdrant + Claude). Os desafios refletem situações reais do time técnico.</div>
+  <div class="nota-box"><strong style="color:var(--c-tp)">Princípio:</strong> candidato excelente em uma trilha (≥ 35/50) e base sólida (≥ 28/40) pode ser aprovado. Domínio completo é diferencial, não pré-requisito.</div>
 </div>
 
 <!-- PÁG 1: CRONOGRAMA -->
@@ -290,106 +467,107 @@ textarea:focus{outline:none;border-color:#6693f8}
       <div class="t-lbl">tempo restante</div>
     </div>
     <div class="t-btns">
-      <button id="tbtn-s" onclick="tStart()"><i class="ti ti-player-play" aria-hidden="true"></i> Iniciar</button>
-      <button id="tbtn-p" onclick="tStop()" style="display:none"><i class="ti ti-player-pause" aria-hidden="true"></i> Pausar</button>
-      <button onclick="tReset()" title="Reiniciar"><i class="ti ti-refresh" aria-hidden="true"></i></button>
+      <button id="tbtn-s" onclick="tStart()"><i class="ti ti-player-play"></i> Iniciar</button>
+      <button id="tbtn-p" onclick="tStop()" style="display:none"><i class="ti ti-player-pause"></i> Pausar</button>
+      <button onclick="tReset()" title="Reiniciar"><i class="ti ti-refresh"></i></button>
     </div>
-    <div class="seg-bar" id="seg-bar">
+    <div class="seg-bar">
       <span class="seg active" id="seg0">Parte 1</span>
       <span class="seg" id="seg1">Parte 2</span>
     </div>
   </div>
 
   <div class="sec-lbl">Parte 1 — Base comum · 30 min</div>
-  <div class="flow">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-body">
-        <div class="step-head">Abertura e instruções <span class="pill p-gray">5 min</span></div>
-        <div class="step-desc">Avaliador apresenta o processo, confirma câmera e microfone ativos, compartilha link da prova em aba anônima. Candidato lê as instruções gerais. <strong style="font-weight:500;color:var(--color-text-primary)">Nenhuma busca, Copilot ou IA auxiliar permitida durante a prova.</strong></div>
+  <div class="card">
+    <div class="flow">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-head">Abertura <span class="pill p-gray">5 min</span></div>
+          <div class="step-desc">Confirmar câmera e microfone, compartilhar link em aba anônima. <strong style="color:var(--c-tp)">Nenhuma IA, busca ou Copilot permitidos.</strong></div>
+        </div>
       </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-body">
-        <div class="step-head">Questões conceituais <span class="pill p-blue">10 min · 30 pts</span></div>
-        <div class="step-desc">12 questões de múltipla escolha cobrindo Python (4), IA Generativa / LLM (4) e SQL + Git (4). Objetivo: medir base teórica antes do código. Avaliador acompanha na aba <strong style="font-weight:500;color:var(--color-text-primary)">Questões</strong> desta ferramenta, marcando acertos em tempo real.</div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-head">Questões conceituais <span class="pill p-blue">10 min · 30 pts</span></div>
+          <div class="step-desc">12 questões de múltipla escolha — Python (4), IA Generativa (4), SQL+Git (4). Marque os acertos na aba <strong style="color:var(--c-tp)">Questões</strong> em tempo real.</div>
+        </div>
       </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-body">
-        <div class="step-head">Mini-desafio integrador obrigatório <span class="pill p-amber">14 min · 10 pts</span></div>
-        <div class="step-desc">Candidato recebe um trecho de código Python com bug de produção e uma query SQL com erro lógico. Deve identificar e corrigir ambos. Análise estática e explicação em voz alta valem — não precisa executar.</div>
-        <pre>## Python — pipeline de ingestão IAgentics
-## Encontre o bug que causaria falha silenciosa em produção
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-head">Mini-desafio de debug <span class="pill p-amber">14 min · 10 pts</span></div>
+          <div class="step-desc">Código Python com bug de produção + query SQL com erro lógico. Candidato identifica e corrige em voz alta — execução não obrigatória.</div>
+          <pre><code class="language-python"># Pipeline de ingestão IAgentics — encontre o bug
 
 def calcular_media_chunks(tamanhos: list) -> float:
-    """Calcula o tamanho médio dos chunks de um documento."""
+    """Calcula tamanho médio dos chunks de um documento."""
     total = 0
     for t in tamanhos:
         total = total + t
     return total / len(tamanhos)
 
-# Chamado quando documento não foi dividido em chunks ainda
+# Chamado quando documento ainda não foi dividido em chunks
 media = calcular_media_chunks([])
-print(f"Tamanho médio: {media}")</pre>
-        <pre>-- Relatório de gastos por fornecedor aprovado
--- Encontre o erro lógico
-
+print(f"Tamanho médio: {media}")</code></pre>
+          <pre><code class="language-sql">-- Relatório de gastos por fornecedor aprovado — encontre o erro lógico
 SELECT fornecedor, SUM(valor) AS total_gasto
 FROM pedidos
 WHERE SUM(valor) > 10000
 GROUP BY fornecedor
-ORDER BY total_gasto DESC;</pre>
+ORDER BY total_gasto DESC;</code></pre>
+        </div>
       </div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-body">
-        <div class="step-head">Escolha da trilha <span class="pill p-gray">1 min</span></div>
-        <div class="step-desc">Candidato declara em voz alta qual trilha escolherá para a Parte 2. Avaliador registra na aba <strong style="font-weight:500;color:var(--color-text-primary)">Visão geral</strong>. Não há penalização pela escolha.</div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-head">Escolha da trilha <span class="pill p-gray">1 min</span></div>
+          <div class="step-desc">Candidato declara a trilha em voz alta. Avaliador registra na aba <strong style="color:var(--c-tp)">Visão geral</strong>.</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="sec-lbl">Parte 2 — Desafio prático por trilha · 30 min</div>
-  <div class="flow">
-    <div class="step">
-      <div class="step-num">5</div>
-      <div class="step-body">
-        <div class="step-head">Desafio prático da trilha escolhida <span class="pill p-blue">25 min · 50 pts</span></div>
-        <div class="step-desc">Candidato recebe o enunciado da trilha (abas Python, IA+LLM ou SQL+Git). Codifica ao vivo com câmera aberta. Pode usar editor de texto simples, Replit ou VS Code — sem Copilot ou autocomplete de IA.</div>
+  <div class="sec-lbl">Parte 2 — Desafio prático · 30 min</div>
+  <div class="card">
+    <div class="flow">
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-head">Codificação ao vivo <span class="pill p-blue">25 min · 50 pts</span></div>
+          <div class="step-desc">Enunciado da trilha escolhida (abas Python / IA+LLM / SQL+Git). Pode usar VS Code ou Replit — sem Copilot.</div>
+        </div>
       </div>
-    </div>
-    <div class="step">
-      <div class="step-num">6</div>
-      <div class="step-body">
-        <div class="step-head">Apresentação e perguntas do avaliador <span class="pill p-amber">5 min · bônus 10 pts</span></div>
-        <div class="step-desc">Candidato explica as decisões de código em voz alta. O avaliador faz 1–2 perguntas de aprofundamento ("como você escalaria isso?", "o que mudaria se o volume de documentos fosse 100×?", "como evitaria alucinações nessa classificação?"). Os 10 pts de bônus são concedidos pela qualidade da argumentação.</div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <div class="step-head">Apresentação e perguntas <span class="pill p-amber">5 min · bônus 10 pts</span></div>
+          <div class="step-desc">Candidato explica decisões de código. Avaliador faz 1–2 perguntas de aprofundamento: "como escalaria isso?", "o que mudaria se o volume fosse 100×?", "como evitaria alucinações?"</div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- PÁG 2: QUESTÕES (NOVO) -->
+<!-- PÁG 2: QUESTÕES -->
 <div class="pg" id="p2">
   <div class="quiz-topbar">
-    <div style="font-size:13px;color:var(--color-text-secondary)">Marque cada questão conforme o candidato responde. A pontuação é calculada automaticamente.</div>
-    <div class="quiz-live" id="quiz-running">0/12 corretas · 0/40 pts</div>
+    <div style="font-size:13px;color:var(--c-ts)">Marque conforme o candidato responde. A pontuação é calculada automaticamente.</div>
+    <div class="quiz-live" id="quiz-running">0 / 12 corretas · 0 / 40 pts</div>
   </div>
+  <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-bar"></div></div>
 
-  <!-- Python -->
-  <span class="q-area-lbl q-area-py"><i class="ti ti-brand-python" style="font-size:11px;margin-right:4px"></i>Python — 4 questões</span>
+  <span class="q-area-lbl q-area-py"><i class="ti ti-brand-python"></i>Python · 4 questões</span>
 
   <div class="q-card" id="qcard-0">
     <div class="q-num">P1</div>
-    <div class="q-text">Qual exceção é lançada ao executar <code>calcular_media([])</code> com a função <code>def calcular_media(l): return sum(l) / len(l)</code>?</div>
+    <div class="q-text">Qual exceção é lançada ao executar <code>calcular_media([])</code> onde <code>def calcular_media(l): return sum(l) / len(l)</code>?</div>
     <div class="q-opts">
-      <div class="q-opt"><span class="q-lbl">A</span> <code>ValueError: empty sequence</code></div>
-      <div class="q-opt correct"><span class="q-lbl">B</span> <code>ZeroDivisionError</code></div>
-      <div class="q-opt"><span class="q-lbl">C</span> <code>IndexError: list index out of range</code></div>
-      <div class="q-opt"><span class="q-lbl">D</span> Retorna <code>0</code> sem lançar exceção</div>
+      <div class="q-opt"><span class="q-lbl">A</span><code>ValueError: empty sequence</code></div>
+      <div class="q-opt correct"><span class="q-lbl">B</span><code>ZeroDivisionError</code></div>
+      <div class="q-opt"><span class="q-lbl">C</span><code>IndexError: list index out of range</code></div>
+      <div class="q-opt"><span class="q-lbl">D</span>Retorna <code>0</code> sem lançar exceção</div>
     </div>
     <button class="q-btn" id="qbtn-0" onclick="toggleQ(0)">○ Acertou</button>
   </div>
@@ -398,61 +576,60 @@ ORDER BY total_gasto DESC;</pre>
     <div class="q-num">P2</div>
     <div class="q-text">Qual é o propósito do decorador <code>@dataclass</code> em Python?</div>
     <div class="q-opts">
-      <div class="q-opt"><span class="q-lbl">A</span> Transformar a classe em estrutura imutável (frozen)</div>
-      <div class="q-opt correct"><span class="q-lbl">B</span> Gerar automaticamente <code>__init__</code>, <code>__repr__</code> e <code>__eq__</code> com base nos atributos tipados</div>
-      <div class="q-opt"><span class="q-lbl">C</span> Serializar a classe diretamente para JSON</div>
-      <div class="q-opt"><span class="q-lbl">D</span> Adicionar suporte a herança múltipla sem conflito de MRO</div>
+      <div class="q-opt"><span class="q-lbl">A</span>Tornar a classe imutável (frozen)</div>
+      <div class="q-opt correct"><span class="q-lbl">B</span>Gerar automaticamente <code>__init__</code>, <code>__repr__</code> e <code>__eq__</code> com base nos atributos tipados</div>
+      <div class="q-opt"><span class="q-lbl">C</span>Serializar a classe diretamente para JSON</div>
+      <div class="q-opt"><span class="q-lbl">D</span>Adicionar suporte a herança múltipla sem conflito de MRO</div>
     </div>
     <button class="q-btn" id="qbtn-1" onclick="toggleQ(1)">○ Acertou</button>
   </div>
 
   <div class="q-card" id="qcard-2">
     <div class="q-num">P3</div>
-    <div class="q-text">Qual é a forma correta de verificar erros em uma resposta HTTP com a biblioteca <code>requests</code>?</div>
+    <div class="q-text">Forma correta de verificar erros em uma resposta HTTP com <code>requests</code>?</div>
     <div class="q-opts">
-      <div class="q-opt"><span class="q-lbl">A</span> <code>if response == 200:</code></div>
-      <div class="q-opt"><span class="q-lbl">B</span> <code>if not response.error:</code></div>
-      <div class="q-opt correct"><span class="q-lbl">C</span> <code>response.raise_for_status()</code> ou <code>if response.ok:</code></div>
-      <div class="q-opt"><span class="q-lbl">D</span> <code>try: requests.get(url) except HTTPError:</code></div>
+      <div class="q-opt"><span class="q-lbl">A</span><code>if response == 200:</code></div>
+      <div class="q-opt"><span class="q-lbl">B</span><code>if not response.error:</code></div>
+      <div class="q-opt correct"><span class="q-lbl">C</span><code>response.raise_for_status()</code> ou <code>if response.ok:</code></div>
+      <div class="q-opt"><span class="q-lbl">D</span><code>try: requests.get(url) except HTTPError:</code></div>
     </div>
     <button class="q-btn" id="qbtn-2" onclick="toggleQ(2)">○ Acertou</button>
   </div>
 
   <div class="q-card" id="qcard-3">
     <div class="q-num">P4</div>
-    <div class="q-text">Por que <code>json.dumps(meu_objeto)</code> lança <code>TypeError</code> quando <code>meu_objeto</code> é uma instância de classe customizada?</div>
+    <div class="q-text">Por que <code>json.dumps(meu_objeto)</code> lança <code>TypeError</code> com uma instância de classe customizada?</div>
     <div class="q-opts">
-      <div class="q-opt"><span class="q-lbl">A</span> Strings precisam ser codificadas em UTF-8 antes da serialização</div>
-      <div class="q-opt correct"><span class="q-lbl">B</span> <code>json.dumps</code> só serializa tipos nativos Python (dict, list, str, int, float, bool, None)</div>
-      <div class="q-opt"><span class="q-lbl">C</span> É necessário usar <code>from json import dumps</code> em vez de <code>import json</code></div>
-      <div class="q-opt"><span class="q-lbl">D</span> <code>json.dumps</code> só aceita dicionários, não listas ou objetos</div>
+      <div class="q-opt"><span class="q-lbl">A</span>Strings precisam ser codificadas em UTF-8 antes</div>
+      <div class="q-opt correct"><span class="q-lbl">B</span><code>json.dumps</code> só serializa tipos nativos Python (dict, list, str, int, float, bool, None)</div>
+      <div class="q-opt"><span class="q-lbl">C</span>É necessário usar <code>from json import dumps</code></div>
+      <div class="q-opt"><span class="q-lbl">D</span><code>json.dumps</code> só aceita dicionários, não listas ou objetos</div>
     </div>
     <button class="q-btn" id="qbtn-3" onclick="toggleQ(3)">○ Acertou</button>
   </div>
 
-  <!-- IA Generativa -->
-  <span class="q-area-lbl q-area-ai"><i class="ti ti-brain" style="font-size:11px;margin-right:4px"></i>IA Generativa + LLM — 4 questões</span>
+  <span class="q-area-lbl q-area-ai"><i class="ti ti-brain"></i>IA Generativa + LLM · 4 questões</span>
 
   <div class="q-card" id="qcard-4">
     <div class="q-num">IA1</div>
     <div class="q-text">O que é RAG (Retrieval-Augmented Generation)?</div>
     <div class="q-opts">
-      <div class="q-opt"><span class="q-lbl">A</span> Uma técnica de fine-tuning de LLMs usando dados rotulados com RLHF</div>
-      <div class="q-opt correct"><span class="q-lbl">B</span> Uma arquitetura que combina busca semântica em base de conhecimento com geração de texto por LLM</div>
-      <div class="q-opt"><span class="q-lbl">C</span> Um modelo de linguagem especializado em recuperação de documentos jurídicos</div>
-      <div class="q-opt"><span class="q-lbl">D</span> Um framework de avaliação de qualidade de respostas geradas por IA</div>
+      <div class="q-opt"><span class="q-lbl">A</span>Técnica de fine-tuning de LLMs com dados rotulados via RLHF</div>
+      <div class="q-opt correct"><span class="q-lbl">B</span>Arquitetura que combina busca semântica em base de conhecimento com geração de texto por LLM</div>
+      <div class="q-opt"><span class="q-lbl">C</span>Modelo de linguagem especializado em recuperação de documentos</div>
+      <div class="q-opt"><span class="q-lbl">D</span>Framework de avaliação de qualidade de respostas de IA</div>
     </div>
     <button class="q-btn" id="qbtn-4" onclick="toggleQ(4)">○ Acertou</button>
   </div>
 
   <div class="q-card" id="qcard-5">
     <div class="q-num">IA2</div>
-    <div class="q-text">No contexto de bancos vetoriais (ex: Qdrant, Pinecone), o que representa um <em>embedding</em>?</div>
+    <div class="q-text">Em bancos vetoriais (ex: Qdrant, Pinecone), o que representa um <em>embedding</em>?</div>
     <div class="q-opts">
-      <div class="q-opt"><span class="q-lbl">A</span> Um arquivo binário compactado com documentos indexados</div>
-      <div class="q-opt"><span class="q-lbl">B</span> Um índice invertido de palavras-chave de um corpus de documentos</div>
-      <div class="q-opt correct"><span class="q-lbl">C</span> Uma representação numérica densa de texto que captura significado semântico</div>
-      <div class="q-opt"><span class="q-lbl">D</span> Um hash criptográfico usado para deduplicação de documentos</div>
+      <div class="q-opt"><span class="q-lbl">A</span>Arquivo binário compactado de documentos indexados</div>
+      <div class="q-opt"><span class="q-lbl">B</span>Índice invertido de palavras-chave de um corpus</div>
+      <div class="q-opt correct"><span class="q-lbl">C</span>Representação numérica densa de texto que captura significado semântico</div>
+      <div class="q-opt"><span class="q-lbl">D</span>Hash criptográfico para deduplicação de documentos</div>
     </div>
     <button class="q-btn" id="qbtn-5" onclick="toggleQ(5)">○ Acertou</button>
   </div>
@@ -461,10 +638,10 @@ ORDER BY total_gasto DESC;</pre>
     <div class="q-num">IA3</div>
     <div class="q-text">O que é <em>chunking</em> no pipeline de processamento de documentos para RAG?</div>
     <div class="q-opts">
-      <div class="q-opt"><span class="q-lbl">A</span> Compressão de PDFs para reduzir espaço de armazenamento em cloud</div>
-      <div class="q-opt correct"><span class="q-lbl">B</span> Divisão de documentos em fragmentos menores para indexação e recuperação eficiente</div>
-      <div class="q-opt"><span class="q-lbl">C</span> Agrupamento de documentos similares em clusters temáticos via k-means</div>
-      <div class="q-opt"><span class="q-lbl">D</span> Criptografia de dados sensíveis antes do armazenamento vetorial</div>
+      <div class="q-opt"><span class="q-lbl">A</span>Compressão de PDFs para reduzir espaço em cloud</div>
+      <div class="q-opt correct"><span class="q-lbl">B</span>Divisão de documentos em fragmentos menores para indexação e recuperação eficiente</div>
+      <div class="q-opt"><span class="q-lbl">C</span>Agrupamento de documentos similares em clusters via k-means</div>
+      <div class="q-opt"><span class="q-lbl">D</span>Criptografia de dados sensíveis antes do armazenamento vetorial</div>
     </div>
     <button class="q-btn" id="qbtn-6" onclick="toggleQ(6)">○ Acertou</button>
   </div>
@@ -473,97 +650,89 @@ ORDER BY total_gasto DESC;</pre>
     <div class="q-num">IA4</div>
     <div class="q-text">O que descreve corretamente o problema de <em>alucinação</em> em LLMs em produção?</div>
     <div class="q-opts">
-      <div class="q-opt"><span class="q-lbl">A</span> O modelo para de responder quando recebe muitas requisições concorrentes</div>
-      <div class="q-opt correct"><span class="q-lbl">B</span> O modelo gera informações factualmente incorretas com aparente confiança</div>
-      <div class="q-opt"><span class="q-lbl">C</span> O modelo copia literalmente trechos dos documentos sem adaptar para o contexto</div>
-      <div class="q-opt"><span class="q-lbl">D</span> O modelo recusa responder por violar políticas de segurança do provider</div>
+      <div class="q-opt"><span class="q-lbl">A</span>Modelo para de responder por excesso de requisições concorrentes</div>
+      <div class="q-opt correct"><span class="q-lbl">B</span>Modelo gera informações factualmente incorretas com aparente confiança</div>
+      <div class="q-opt"><span class="q-lbl">C</span>Modelo copia literalmente trechos dos documentos sem adaptar</div>
+      <div class="q-opt"><span class="q-lbl">D</span>Modelo recusa responder por violar políticas de segurança do provider</div>
     </div>
     <button class="q-btn" id="qbtn-7" onclick="toggleQ(7)">○ Acertou</button>
   </div>
 
-  <!-- SQL + Git -->
-  <span class="q-area-lbl q-area-sq"><i class="ti ti-database" style="font-size:11px;margin-right:4px"></i>SQL + Git — 4 questões</span>
+  <span class="q-area-lbl q-area-sq"><i class="ti ti-database"></i>SQL + Git · 4 questões</span>
 
   <div class="q-card" id="qcard-8">
     <div class="q-num">S1</div>
     <div class="q-text">Na query <code>SELECT fornecedor, SUM(valor) FROM pedidos WHERE SUM(valor) &gt; 10000 GROUP BY fornecedor</code>, qual é o erro lógico?</div>
     <div class="q-opts">
-      <div class="q-opt"><span class="q-lbl">A</span> <code>GROUP BY</code> deve vir antes de <code>WHERE</code> na sintaxe SQL</div>
-      <div class="q-opt correct"><span class="q-lbl">B</span> Funções de agregação não podem ser usadas em <code>WHERE</code> — deve-se usar <code>HAVING</code></div>
-      <div class="q-opt"><span class="q-lbl">C</span> <code>SUM(valor)</code> não é compatível com <code>GROUP BY fornecedor</code></div>
-      <div class="q-opt"><span class="q-lbl">D</span> Falta <code>ORDER BY</code> para a query funcionar corretamente</div>
+      <div class="q-opt"><span class="q-lbl">A</span><code>GROUP BY</code> deve vir antes de <code>WHERE</code></div>
+      <div class="q-opt correct"><span class="q-lbl">B</span>Funções de agregação não podem ser usadas em <code>WHERE</code> — deve-se usar <code>HAVING</code></div>
+      <div class="q-opt"><span class="q-lbl">C</span><code>SUM(valor)</code> não é compatível com <code>GROUP BY fornecedor</code></div>
+      <div class="q-opt"><span class="q-lbl">D</span>Falta <code>ORDER BY</code> para a query funcionar</div>
     </div>
     <button class="q-btn" id="qbtn-8" onclick="toggleQ(8)">○ Acertou</button>
   </div>
 
   <div class="q-card" id="qcard-9">
     <div class="q-num">S2</div>
-    <div class="q-text">Qual é a diferença principal entre <code>INNER JOIN</code> e <code>LEFT JOIN</code>?</div>
+    <div class="q-text">Diferença principal entre <code>INNER JOIN</code> e <code>LEFT JOIN</code>?</div>
     <div class="q-opts">
-      <div class="q-opt"><span class="q-lbl">A</span> <code>INNER JOIN</code> é otimizado para grandes volumes; <code>LEFT JOIN</code> para tabelas pequenas</div>
-      <div class="q-opt correct"><span class="q-lbl">B</span> <code>LEFT JOIN</code> retorna todos os registros da tabela esquerda, com <code>NULL</code> onde não há correspondência</div>
-      <div class="q-opt"><span class="q-lbl">C</span> <code>INNER JOIN</code> trata colunas <code>NULL</code>; <code>LEFT JOIN</code> as ignora automaticamente</div>
-      <div class="q-opt"><span class="q-lbl">D</span> São equivalentes, apenas com sintaxes alternativas</div>
+      <div class="q-opt"><span class="q-lbl">A</span><code>INNER JOIN</code> é otimizado para grandes volumes; <code>LEFT JOIN</code> para tabelas pequenas</div>
+      <div class="q-opt correct"><span class="q-lbl">B</span><code>LEFT JOIN</code> retorna todos os registros da tabela esquerda, com <code>NULL</code> onde não há correspondência</div>
+      <div class="q-opt"><span class="q-lbl">C</span><code>INNER JOIN</code> trata colunas <code>NULL</code>; <code>LEFT JOIN</code> as ignora</div>
+      <div class="q-opt"><span class="q-lbl">D</span>São equivalentes, apenas com sintaxes diferentes</div>
     </div>
     <button class="q-btn" id="qbtn-9" onclick="toggleQ(9)">○ Acertou</button>
   </div>
 
   <div class="q-card" id="qcard-10">
     <div class="q-num">S3</div>
-    <div class="q-text">O que o comando <code>git rebase main</code> faz quando executado a partir de uma branch <code>feature</code>?</div>
+    <div class="q-text">O que <code>git rebase main</code> faz na branch <code>feature</code>?</div>
     <div class="q-opts">
-      <div class="q-opt"><span class="q-lbl">A</span> Cria uma cópia da <code>main</code> com o nome <code>feature-rebase</code></div>
-      <div class="q-opt"><span class="q-lbl">B</span> Reverte todos os commits da <code>feature</code> ao estado atual da <code>main</code></div>
-      <div class="q-opt correct"><span class="q-lbl">C</span> Recria os commits da <code>feature</code> sobre o topo atual da <code>main</code>, linearizando o histórico</div>
-      <div class="q-opt"><span class="q-lbl">D</span> Mescla <code>feature</code> na <code>main</code> criando um commit de merge</div>
+      <div class="q-opt"><span class="q-lbl">A</span>Cria cópia da <code>main</code> com nome <code>feature-rebase</code></div>
+      <div class="q-opt"><span class="q-lbl">B</span>Reverte commits da <code>feature</code> ao estado da <code>main</code></div>
+      <div class="q-opt correct"><span class="q-lbl">C</span>Recria os commits da <code>feature</code> sobre o topo atual da <code>main</code>, linearizando o histórico</div>
+      <div class="q-opt"><span class="q-lbl">D</span>Mescla <code>feature</code> na <code>main</code> criando commit de merge</div>
     </div>
     <button class="q-btn" id="qbtn-10" onclick="toggleQ(10)">○ Acertou</button>
   </div>
 
   <div class="q-card" id="qcard-11">
     <div class="q-num">S4</div>
-    <div class="q-text">Qual das opções segue corretamente o padrão <em>Conventional Commits</em>?</div>
+    <div class="q-text">Qual segue o padrão <em>Conventional Commits</em>?</div>
     <div class="q-opts">
-      <div class="q-opt"><span class="q-lbl">A</span> <code>update: code changes in queries module</code></div>
-      <div class="q-opt"><span class="q-lbl">B</span> <code>COMMIT — alteração no módulo de pedidos v2</code></div>
-      <div class="q-opt correct"><span class="q-lbl">C</span> <code>feat: adiciona filtro de fornecedores por categoria de risco</code></div>
-      <div class="q-opt"><span class="q-lbl">D</span> <code>fixed bug in supplier queries</code></div>
+      <div class="q-opt"><span class="q-lbl">A</span><code>update: code changes in queries module</code></div>
+      <div class="q-opt"><span class="q-lbl">B</span><code>COMMIT — alteração no módulo de pedidos v2</code></div>
+      <div class="q-opt correct"><span class="q-lbl">C</span><code>feat: adiciona filtro de fornecedores por categoria de risco</code></div>
+      <div class="q-opt"><span class="q-lbl">D</span><code>fixed bug in supplier queries</code></div>
     </div>
     <button class="q-btn" id="qbtn-11" onclick="toggleQ(11)">○ Acertou</button>
   </div>
 
-  <!-- Mini-desafio toggles -->
   <div class="sec-lbl">Mini-desafio integrador · 10 pts</div>
   <div class="card">
     <div class="mini-row">
-      <div>
-        <span class="mini-lbl">Python — identificou e corrigiu o <code>ZeroDivisionError</code></span>
-        <span class="mini-pts">5 pts</span>
-      </div>
+      <div><span class="mini-lbl">Python — identificou e corrigiu o <code>ZeroDivisionError</code></span><span class="mini-pts">5 pts</span></div>
       <button class="mini-toggle" id="mini0" onclick="toggleMini(0)">Corrigiu</button>
     </div>
     <div class="mini-row">
-      <div>
-        <span class="mini-lbl">SQL — identificou <code>WHERE</code> e corrigiu para <code>HAVING</code></span>
-        <span class="mini-pts">5 pts</span>
-      </div>
+      <div><span class="mini-lbl">SQL — identificou <code>WHERE</code> e corrigiu para <code>HAVING</code></span><span class="mini-pts">5 pts</span></div>
       <button class="mini-toggle" id="mini1" onclick="toggleMini(1)">Corrigiu</button>
     </div>
   </div>
 
   <div class="quiz-total">
-    <span class="ql">Parte 1 total</span>
+    <span class="ql">Total Parte 1</span>
     <span class="qv" id="quiz-p1-total">0 / 40 pts</span>
   </div>
 </div>
 
-<!-- PÁG 3: TRILHA PYTHON -->
+<!-- PÁG 3: PYTHON -->
 <div class="pg" id="p3">
   <div class="phase-banner">
-    <i class="ti ti-brand-python phase-icon" aria-hidden="true"></i>
+    <i class="ti ti-brand-python phase-icon"></i>
     <div>
       <div class="phase-name">Trilha Python + API REST</div>
-      <div class="phase-meta">25 min de código · 50 pontos · nível: estagiário com base sólida</div>
+      <div class="phase-meta">25 min · 50 pts · nível estagiário com base sólida</div>
     </div>
     <span class="pill p-blue" style="margin-left:auto">Parte 2</span>
   </div>
@@ -571,46 +740,42 @@ ORDER BY total_gasto DESC;</pre>
   <div class="desafio">
     <div class="d-header">
       <span class="d-tag p-blue">Enunciado</span>
-      <span class="d-title">Pipeline de ingestão de documentos</span>
+      <div class="d-title">Pipeline de ingestão de documentos</div>
       <span class="d-pts">50 pts</span>
     </div>
-    <div class="d-enun">
-      <strong style="font-weight:500;color:var(--color-text-primary)">Contexto:</strong> você está no time de dados da IAgentics e precisa construir o primeiro módulo do pipeline de ingestão — o script que busca metadados de documentos de uma API e prepara os dados para indexação na base de conhecimento RAG.<br><br>
-      <strong style="font-weight:500;color:var(--color-text-primary)">API mock disponível (usar <code>requests</code>):</strong>
-    </div>
-    <pre>GET https://jsonplaceholder.typicode.com/posts?userId=1
-# Simula catálogo de documentos do cliente
+    <div class="d-enun"><strong style="color:var(--c-tp)">Contexto:</strong> você está no time de dados da IAgentics construindo o módulo de ingestão que busca metadados de documentos via API e prepara os dados para indexação no pipeline RAG.</div>
+    <pre><code class="language-python">GET https://jsonplaceholder.typicode.com/posts?userId=1
 # "id"    → identificador do documento
-# "title" → título do documento
-# "body"  → trecho do conteúdo (snippet)</pre>
+# "title" → título
+# "body"  → trecho do conteúdo (snippet)</code></pre>
     <div class="d-req">O script deve:</div>
-    <div class="req-item">Buscar documentos via <code>requests.get()</code> com tratamento de erro HTTP (<code>raise_for_status</code> ou verificação de status)</div>
-    <div class="req-item">Criar uma classe <code>Documento</code> com atributos <code>id</code>, <code>titulo</code>, <code>conteudo</code>, <code>fonte</code> e método <code>resumo()</code> que retorna uma string formatada para log</div>
-    <div class="req-item">Instanciar objetos <code>Documento</code> a partir do JSON retornado (loop + construtor)</div>
-    <div class="req-item">Filtrar apenas documentos com <code>conteudo</code> de comprimento &gt; 100 caracteres (candidatos a indexação — chunks muito curtos são descartados)</div>
-    <div class="req-item">Salvar o resultado em <code>documentos_para_indexar.json</code> com a lista de dicts no formato <code>{"id", "titulo", "conteudo", "fonte"}</code></div>
-    <div style="margin-top:.75rem;font-size:12px;color:var(--color-text-tertiary)">Bônus (avaliador anota): uso de <code>@dataclass</code> com tipagem, tratamento de <code>timeout</code> na requisição, ou uso de <code>__post_init__</code> para validação.</div>
+    <div class="req-item">Buscar documentos via <code>requests.get()</code> com <code>raise_for_status()</code></div>
+    <div class="req-item">Criar classe <code>Documento</code> com atributos <code>id</code>, <code>titulo</code>, <code>conteudo</code>, <code>fonte</code> e método <code>resumo()</code></div>
+    <div class="req-item">Instanciar objetos <code>Documento</code> a partir do JSON retornado</div>
+    <div class="req-item">Filtrar documentos com <code>len(conteudo) &gt; 100</code> (candidatos a indexação)</div>
+    <div class="req-item">Salvar resultado em <code>documentos_para_indexar.json</code></div>
+    <div style="margin-top:.875rem;font-size:12px;color:var(--c-tt)">Bônus: <code>@dataclass</code> com tipagem, timeout na requisição, <code>__post_init__</code> para validação.</div>
   </div>
 
-  <div class="sec-lbl">Rubrica de correção</div>
+  <div class="sec-lbl">Rubrica</div>
   <div class="card">
-    <div class="rubric-row"><span class="lbl">Requisição GET com verificação de status / <code>raise_for_status()</code></span><span class="pts">8 pts</span></div>
-    <div class="rubric-row"><span class="lbl">Classe <code>Documento</code> com atributos corretos e <code>__init__</code> funcional</span><span class="pts">10 pts</span></div>
+    <div class="rubric-row"><span class="lbl">GET com <code>raise_for_status()</code> ou verificação de status</span><span class="pts">8 pts</span></div>
+    <div class="rubric-row"><span class="lbl">Classe <code>Documento</code> com atributos corretos e <code>__init__</code></span><span class="pts">10 pts</span></div>
     <div class="rubric-row"><span class="lbl">Método <code>resumo()</code> funcional com f-string ou <code>format()</code></span><span class="pts">7 pts</span></div>
-    <div class="rubric-row"><span class="lbl">Instanciação correta a partir do JSON (loop + construtor)</span><span class="pts">8 pts</span></div>
+    <div class="rubric-row"><span class="lbl">Instanciação correta do JSON (loop + construtor)</span><span class="pts">8 pts</span></div>
     <div class="rubric-row"><span class="lbl">Filtro de comprimento correto (<code>len(doc.conteudo) &gt; 100</code>)</span><span class="pts">7 pts</span></div>
-    <div class="rubric-row"><span class="lbl">Serialização com <code>json.dumps</code> e gravação em arquivo (<code>open + write</code>)</span><span class="pts">10 pts</span></div>
-    <div style="padding:7px 0;display:flex;justify-content:space-between;font-size:13px;font-weight:500;color:var(--color-text-primary)"><span>Total</span><span>50 pts</span></div>
+    <div class="rubric-row"><span class="lbl">Serialização com <code>json.dumps</code> e gravação em arquivo</span><span class="pts">10 pts</span></div>
+    <div style="padding:8px 0;display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:var(--c-tp)"><span>Total</span><span>50 pts</span></div>
   </div>
 </div>
 
-<!-- PÁG 4: TRILHA IA + LLM -->
+<!-- PÁG 4: IA + LLM -->
 <div class="pg" id="p4">
   <div class="phase-banner">
-    <i class="ti ti-brain phase-icon" aria-hidden="true"></i>
+    <i class="ti ti-brain phase-icon"></i>
     <div>
       <div class="phase-name">Trilha IA Generativa + LLM</div>
-      <div class="phase-meta">25 min de código + prompt · 50 pontos · nível: iniciante em LLMs</div>
+      <div class="phase-meta">25 min · 50 pts · nível iniciante em LLMs</div>
     </div>
     <span class="pill p-blue" style="margin-left:auto">Parte 2</span>
   </div>
@@ -618,48 +783,45 @@ ORDER BY total_gasto DESC;</pre>
   <div class="desafio">
     <div class="d-header">
       <span class="d-tag p-blue">Enunciado</span>
-      <span class="d-title">Classificador de documentos para pipeline RAG com Claude</span>
+      <div class="d-title">Classificador de documentos para pipeline RAG com Claude</div>
       <span class="d-pts">50 pts</span>
     </div>
-    <div class="d-enun">
-      <strong style="font-weight:500;color:var(--color-text-primary)">Contexto:</strong> a IAgentics usa Claude (Anthropic) como LLM primário. Você precisa construir um script que classifica automaticamente documentos recebidos pelo pipeline, determinando prioridade de ingestão para a base RAG. O avaliador fornecerá uma API key Anthropic válida.<br><br>
-      <strong style="font-weight:500;color:var(--color-text-primary)">Dados de entrada (constante no script):</strong>
-    </div>
-    <pre>DOCUMENTOS = [
-    {"id": 1, "texto": "Relatório Q1 2024: faturamento cresceu 32%, margem "
-                       "operacional 18%. Expansão em curso no segmento B2B."},
-    {"id": 2, "texto": "Ata de reunião: pendências de integração com ERP do "
-                       "cliente X não resolvidas. Prazo critico vence em 15 dias."},
-    {"id": 3, "texto": "Manual técnico: configuração de credenciais OAuth2 para "
-                       "API de fornecedores. Seção 3.2 — autenticação e tokens."},
-]</pre>
+    <div class="d-enun"><strong style="color:var(--c-tp)">Contexto:</strong> IAgentics usa Claude (Anthropic) como LLM primário. Construa um script que classifica documentos por prioridade de ingestão na base RAG. O avaliador fornece a API key durante a prova.</div>
+    <pre><code class="language-python">DOCUMENTOS = [
+    {"id": 1, "texto": "Relatório Q1 2024: faturamento cresceu 32%, "
+                       "margem operacional 18%. Expansão B2B em curso."},
+    {"id": 2, "texto": "Ata: pendências de integração com ERP do cliente X "
+                       "não resolvidas. Prazo crítico vence em 15 dias."},
+    {"id": 3, "texto": "Manual técnico: configuração de credenciais OAuth2 "
+                       "para API de fornecedores. Seção 3.2 — autenticação."},
+]</code></pre>
     <div class="d-req">O script deve:</div>
-    <div class="req-item">Montar um <code>system prompt</code> que instrua o modelo a classificar cada documento como <code>URGENTE</code>, <code>OPERACIONAL</code> ou <code>REFERÊNCIA</code>, com base no grau de urgência e ação requerida</div>
-    <div class="req-item">Chamar <code>anthropic.messages.create()</code> (SDK Python) passando os documentos como <code>user message</code>, solicitando saída JSON com campos <code>id</code>, <code>classificacao</code> e <code>justificativa</code></div>
-    <div class="req-item">Extrair o conteúdo da resposta via <code>.content[0].text</code> e fazer o parse do JSON</div>
-    <div class="req-item">Imprimir cada documento com sua classificação e justificativa de forma legível</div>
-    <div class="req-item">Comentar no código as decisões de design do prompt (por que cada instrução foi incluída)</div>
-    <div style="margin-top:.75rem;font-size:12px;color:var(--color-text-tertiary)">Bônus: retry com backoff para <code>RateLimitError</code>, uso de <code>response_format</code> para forçar JSON, ou prompt com chain-of-thought explicitado.</div>
+    <div class="req-item">Montar <code>system prompt</code> instruindo o modelo a classificar cada documento como <code>URGENTE</code>, <code>OPERACIONAL</code> ou <code>REFERÊNCIA</code></div>
+    <div class="req-item">Chamar <code>anthropic.messages.create()</code> solicitando saída JSON com <code>id</code>, <code>classificacao</code> e <code>justificativa</code></div>
+    <div class="req-item">Extrair via <code>.content[0].text</code> e fazer parse do JSON</div>
+    <div class="req-item">Imprimir cada documento com classificação e justificativa</div>
+    <div class="req-item">Comentar no código as decisões de design do prompt</div>
+    <div style="margin-top:.875rem;font-size:12px;color:var(--c-tt)">Bônus: retry com backoff para <code>RateLimitError</code>, JSON mode forçado, chain-of-thought no prompt.</div>
   </div>
 
-  <div class="sec-lbl">Rubrica de correção</div>
+  <div class="sec-lbl">Rubrica</div>
   <div class="card">
-    <div class="rubric-row"><span class="lbl">System prompt com instrução clara de classificação, categorias definidas e formato de saída JSON especificado</span><span class="pts">15 pts</span></div>
-    <div class="rubric-row"><span class="lbl">Chamada correta à API Anthropic com parâmetros válidos (<code>model</code>, <code>max_tokens</code>, <code>messages</code>)</span><span class="pts">10 pts</span></div>
-    <div class="rubric-row"><span class="lbl">Extração e parse corretos da resposta (<code>.content[0].text</code> + <code>json.loads</code>)</span><span class="pts">10 pts</span></div>
-    <div class="rubric-row"><span class="lbl">Comentários no código explicando decisões de prompt (raciocínio demonstrado)</span><span class="pts">10 pts</span></div>
-    <div class="rubric-row"><span class="lbl">Saída legível associando cada documento à sua classificação e justificativa</span><span class="pts">5 pts</span></div>
-    <div style="padding:7px 0;display:flex;justify-content:space-between;font-size:13px;font-weight:500;color:var(--color-text-primary)"><span>Total</span><span>50 pts</span></div>
+    <div class="rubric-row"><span class="lbl">System prompt com categorias definidas e formato de saída JSON especificado</span><span class="pts">15 pts</span></div>
+    <div class="rubric-row"><span class="lbl">Chamada correta à API Anthropic (<code>model</code>, <code>max_tokens</code>, <code>messages</code>)</span><span class="pts">10 pts</span></div>
+    <div class="rubric-row"><span class="lbl">Extração e parse corretos (<code>.content[0].text</code> + <code>json.loads</code>)</span><span class="pts">10 pts</span></div>
+    <div class="rubric-row"><span class="lbl">Comentários explicando decisões de design do prompt</span><span class="pts">10 pts</span></div>
+    <div class="rubric-row"><span class="lbl">Saída legível com classificação e justificativa de cada documento</span><span class="pts">5 pts</span></div>
+    <div style="padding:8px 0;display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:var(--c-tp)"><span>Total</span><span>50 pts</span></div>
   </div>
 </div>
 
-<!-- PÁG 5: TRILHA SQL + GIT -->
+<!-- PÁG 5: SQL + GIT -->
 <div class="pg" id="p5">
   <div class="phase-banner">
-    <i class="ti ti-database phase-icon" aria-hidden="true"></i>
+    <i class="ti ti-database phase-icon"></i>
     <div>
       <div class="phase-name">Trilha SQL + Git</div>
-      <div class="phase-meta">25 min · 50 pontos · execução em SQLite local + terminal Git</div>
+      <div class="phase-meta">25 min · 50 pts · SQLite local + terminal Git</div>
     </div>
     <span class="pill p-blue" style="margin-left:auto">Parte 2</span>
   </div>
@@ -667,149 +829,129 @@ ORDER BY total_gasto DESC;</pre>
   <div class="desafio">
     <div class="d-header">
       <span class="d-tag p-blue">Parte A — SQL</span>
-      <span class="d-title">Análise de pedidos de compra</span>
+      <div class="d-title">Análise de pedidos de compra</div>
       <span class="d-pts">35 pts</span>
     </div>
-    <div class="d-enun">O avaliador fornece o arquivo <code>pedidos.db</code> SQLite (gerado via <code>setup.sql</code>). O candidato abre com <code>sqlite3</code> no terminal ou DB Browser e executa as queries.</div>
-    <pre>-- Schema do banco
+    <div class="d-enun">Avaliador fornece <code>pedidos.db</code> (gerado via <code>setup.sql</code>). Candidate abre com <code>sqlite3</code> no terminal ou DB Browser.</div>
+    <pre><code class="language-sql">-- Schema
 CREATE TABLE pedidos (
-  id          INTEGER PRIMARY KEY,
+  id            INTEGER PRIMARY KEY,
   fornecedor_id INTEGER,
-  valor       REAL,
-  status      TEXT,       -- 'aprovado' | 'pendente' | 'cancelado'
-  criado_em   TEXT        -- formato 'YYYY-MM-DD'
+  valor         REAL,
+  status        TEXT,    -- 'aprovado' | 'pendente' | 'cancelado'
+  criado_em     TEXT     -- 'YYYY-MM-DD'
 );
 CREATE TABLE fornecedores (
-  id       INTEGER PRIMARY KEY,
-  nome     TEXT,
-  categoria TEXT          -- 'insumo' | 'servico' | 'equipamento'
+  id        INTEGER PRIMARY KEY,
+  nome      TEXT,
+  categoria TEXT         -- 'insumo' | 'servico' | 'equipamento'
 );
--- 20 registros pré-inseridos</pre>
-    <div class="d-req">Escreva as queries:</div>
-    <div class="req-item">Total gasto por categoria de fornecedor, somente pedidos <code>aprovado</code>, ordenado decrescente <span class="pill p-gray">10 pts</span></div>
-    <div class="req-item">Nome dos fornecedores com <strong style="font-weight:500">mais de 2</strong> pedidos <code>pendente</code> — usar <code>HAVING</code> <span class="pill p-gray">12 pts</span></div>
-    <div class="req-item">Média de valor por mês em 2024 (extrair mês de <code>criado_em</code> com <code>strftime('%m', criado_em)</code>) <span class="pill p-gray">13 pts</span></div>
+-- 20 registros pré-inseridos</code></pre>
+    <div class="d-req">Queries a escrever:</div>
+    <div class="req-item">Total gasto por categoria (só <code>aprovado</code>), ordenado decrescente <span class="pill p-gray">10 pts</span></div>
+    <div class="req-item">Fornecedores com mais de 2 pedidos <code>pendente</code> — usar <code>HAVING</code> <span class="pill p-gray">12 pts</span></div>
+    <div class="req-item">Média de valor por mês em 2024 usando <code>strftime('%m', criado_em)</code> <span class="pill p-gray">13 pts</span></div>
   </div>
 
-  <div class="desafio" style="margin-top:.5rem">
+  <div class="desafio">
     <div class="d-header">
       <span class="d-tag p-blue">Parte B — Git</span>
-      <span class="d-title">Workflow de contribuição</span>
+      <div class="d-title">Workflow de contribuição</div>
       <span class="d-pts">15 pts</span>
     </div>
-    <div class="d-enun">No terminal, com repositório local já inicializado (commit inicial presente), o candidato executa ao vivo:</div>
+    <div class="d-enun">Repositório local já inicializado com commit inicial. Candidato executa ao vivo:</div>
     <div class="req-item">Criar branch <code>feature/analise-pedidos</code> e mudar para ela <span class="pill p-gray">3 pts</span></div>
-    <div class="req-item">Criar arquivo <code>queries.sql</code>, adicionar ao stage e commitar com mensagem semântica (ex: <code>feat: adiciona queries de análise de pedidos</code>) <span class="pill p-gray">5 pts</span></div>
+    <div class="req-item">Criar <code>queries.sql</code>, adicionar ao stage e commitar com mensagem semântica <span class="pill p-gray">5 pts</span></div>
     <div class="req-item">Voltar para <code>main</code> e fazer merge da feature branch <span class="pill p-gray">4 pts</span></div>
-    <div class="req-item">Executar <code>git log --oneline</code> e explicar o histórico exibido em voz alta <span class="pill p-gray">3 pts</span></div>
+    <div class="req-item">Executar <code>git log --oneline</code> e explicar o histórico em voz alta <span class="pill p-gray">3 pts</span></div>
   </div>
 
-  <div class="sec-lbl">Rubrica SQL — queries esperadas</div>
+  <div class="sec-lbl">Gabarito SQL</div>
   <div class="card">
-    <div class="rubric-row"><span class="lbl">Query 1: <code>SELECT f.categoria, SUM(p.valor) … JOIN … WHERE status='aprovado' GROUP BY categoria ORDER BY DESC</code></span><span class="pts">10 pts</span></div>
-    <div class="rubric-row"><span class="lbl">Query 2: <code>… HAVING COUNT(*) &gt; 2</code> — penalizar se usar <code>WHERE</code> em vez de <code>HAVING</code></span><span class="pts">12 pts</span></div>
-    <div class="rubric-row"><span class="lbl">Query 3: <code>strftime('%m', criado_em)</code> correto + <code>AVG(valor)</code> + filtro de ano</span><span class="pts">13 pts</span></div>
-    <div style="padding:7px 0;display:flex;justify-content:space-between;font-size:13px;font-weight:500;color:var(--color-text-primary)"><span>Total SQL</span><span>35 pts</span></div>
+    <div class="rubric-row"><span class="lbl">Q1: <code>JOIN + WHERE status='aprovado' + GROUP BY categoria + ORDER BY DESC</code></span><span class="pts">10 pts</span></div>
+    <div class="rubric-row"><span class="lbl">Q2: <code>HAVING COUNT(*) &gt; 2</code> — penalizar uso de <code>WHERE</code> em vez de <code>HAVING</code></span><span class="pts">12 pts</span></div>
+    <div class="rubric-row"><span class="lbl">Q3: <code>strftime('%m', criado_em)</code> correto + <code>AVG(valor)</code> + filtro de ano</span><span class="pts">13 pts</span></div>
   </div>
 </div>
 
-<!-- PÁG 6: RUBRICA FINAL -->
+<!-- PÁG 6: RUBRICA -->
 <div class="pg" id="p6">
-
   <div class="sec-lbl">Calculadora de pontuação</div>
   <div class="card">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:1rem">
       <div>
-        <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:4px">Parte 1 — base comum (auto)</div>
+        <div style="font-size:12px;color:var(--c-ts);margin-bottom:5px">Parte 1 — base comum (auto)</div>
         <div class="sc-p1-auto" id="sc-p1-display">0</div>
         <div class="sc-p1-hint">calculado da aba Questões · máx. 40</div>
       </div>
       <div>
-        <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:4px">Parte 2 — trilha escolhida (máx. 50)</div>
+        <div style="font-size:12px;color:var(--c-ts);margin-bottom:5px">Parte 2 — trilha (máx. 50)</div>
         <input type="number" id="sc-trilha" min="0" max="50" value="0" oninput="calcFinal()">
       </div>
       <div>
-        <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:4px">Bônus apresentação (máx. 10)</div>
+        <div style="font-size:12px;color:var(--c-ts);margin-bottom:5px">Bônus apresentação (máx. 10)</div>
         <input type="number" id="sc-bonus" min="0" max="10" value="0" oninput="calcFinal()">
       </div>
       <div>
-        <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:4px">Total calculado</div>
-        <div id="sc-total" style="font-size:24px;font-weight:500;color:var(--color-text-primary);padding:4px 0">0 / 100</div>
+        <div style="font-size:12px;color:var(--c-ts);margin-bottom:5px">Total</div>
+        <div id="sc-total">0 / 100</div>
       </div>
     </div>
-    <div id="sc-veredicto">Preencha a trilha e o bônus para ver o veredicto</div>
+    <div id="sc-veredicto">Preencha trilha e bônus para ver o veredicto</div>
   </div>
 
   <div class="sec-lbl">Critérios de aprovação</div>
   <div class="card">
     <table class="matrix">
       <tr><th>Perfil</th><th>Critério</th><th>Recomendação</th></tr>
-      <tr>
-        <td><span class="pill p-green">Aprovado pleno</span></td>
-        <td>≥ 70 total + ≥ 38/50 na trilha</td>
-        <td>Avança para entrevista cultural. Forte candidato para onboarding imediato.</td>
-      </tr>
-      <tr>
-        <td><span class="pill p-blue">Especialista de trilha</span></td>
-        <td>50–69 total + ≥ 40/50 na trilha</td>
-        <td>Aprovado com ressalva. Lacunas nas outras disciplinas serão desenvolvidas no onboarding.</td>
-      </tr>
-      <tr>
-        <td><span class="pill p-amber">Potencial com gaps</span></td>
-        <td>50–69 total + &lt; 38/50 na trilha</td>
-        <td>Reconsiderar. Verificar motivação e plano de desenvolvimento. Pode valer entrevista adicional.</td>
-      </tr>
-      <tr>
-        <td><span class="pill p-red">Reprovado</span></td>
-        <td>&lt; 50 total ou &lt; 25/50 na trilha</td>
-        <td>Base insuficiente. Indicar preparo de 60–90 dias e nova tentativa.</td>
-      </tr>
+      <tr><td><span class="pill p-green">Aprovado pleno</span></td><td>≥ 70 total + ≥ 38/50 na trilha</td><td>Avança para entrevista cultural. Onboarding imediato.</td></tr>
+      <tr><td><span class="pill p-blue">Especialista de trilha</span></td><td>50–69 total + ≥ 40/50 na trilha</td><td>Aprovado com ressalva. Gaps nas outras disciplinas serão desenvolvidos.</td></tr>
+      <tr><td><span class="pill p-amber">Potencial com gaps</span></td><td>50–69 total + &lt; 38/50 na trilha</td><td>Considerar entrevista adicional antes de decidir.</td></tr>
+      <tr><td><span class="pill p-red">Reprovado</span></td><td>&lt; 50 total ou &lt; 25/50 na trilha</td><td>Base insuficiente. Preparo de 60–90 dias e nova tentativa.</td></tr>
     </table>
   </div>
 
   <div class="sec-lbl">Notas do avaliador</div>
   <div class="card">
-    <div style="font-size:13px;color:var(--color-text-secondary);margin-bottom:.5rem">Observações qualitativas (comunicação, raciocínio em voz alta, postura, curiosidade sobre IA/RAG)</div>
-    <textarea id="notas-av" style="min-height:90px" placeholder="Ex: candidato identificou o ZeroDivisionError rapidamente e explicou a correção com try/except. Demonstrou familiaridade com conceitos de embedding. Hesitou na query HAVING mas chegou à resposta correta com dica."></textarea>
+    <div style="font-size:13px;color:var(--c-ts);margin-bottom:.625rem">Observações qualitativas — comunicação, raciocínio em voz alta, curiosidade sobre IA/RAG</div>
+    <textarea id="notas-av" placeholder="Ex: candidato identificou ZeroDivisionError rapidamente e explicou com try/except. Demonstrou familiaridade com embeddings. Hesitou na query HAVING mas chegou à resposta correta."></textarea>
   </div>
-
   <div class="nota-box">
-    <strong style="font-weight:500">Observação de peso:</strong> o desempenho em voz alta (explicar o raciocínio enquanto codifica) é critério decisivo em empate. Candidatos que codificam silenciosamente sem conseguir articular o raciocínio não se encaixam no perfil operacional da IAgentics — comunicação assíncrona clara é skill obrigatória no time.
+    <strong style="color:var(--c-tp)">Peso decisivo:</strong> candidatos que codificam silenciosamente sem articular o raciocínio não se encaixam no perfil IAgentics — comunicação assíncrona clara é skill obrigatória no time.
   </div>
 </div>
 
 </div><!-- /container -->
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>
-// ── Navigation ──
+document.addEventListener('DOMContentLoaded', () => hljs.highlightAll());
+
 function go(i, btn) {
   document.querySelectorAll('.pg').forEach(p => p.classList.remove('show'));
   document.querySelectorAll('.ntab').forEach(t => t.classList.remove('on'));
   document.getElementById('p' + i).classList.add('show');
   btn.classList.add('on');
+  document.getElementById('p' + i).querySelectorAll('pre code:not(.hljs)').forEach(el => hljs.highlightElement(el));
 }
 
-// ── Trilha selection ──
 function selTrilha(i, el) {
   document.querySelectorAll('.trilha-card').forEach(c => c.classList.remove('sel'));
   el.classList.add('sel');
   const names = ['Python + API REST', 'IA Generativa + LLM', 'SQL + Git'];
-  document.getElementById('trilha-hint').textContent =
-    'Trilha selecionada: ' + names[i] + '. Registrada — navegue para a aba correspondente ao iniciar a Parte 2.';
+  document.getElementById('trilha-hint').textContent = '✓ Trilha selecionada: ' + names[i] + ' — navegue para a aba ao iniciar a Parte 2.';
 }
 
-// ── Timer ──
 let ti = null, sec = 3600;
-function p2(n) { return String(n).padStart(2, '0'); }
+const p2 = n => String(n).padStart(2, '0');
 
 function tStart() {
   if (ti) return;
   ti = setInterval(() => {
     if (sec <= 0) { clearInterval(ti); ti = null; document.getElementById('tmr').textContent = '00:00'; return; }
     sec--;
-    const m = Math.floor(sec / 60), s = sec % 60;
-    document.getElementById('tmr').textContent = p2(m) + ':' + p2(s);
-    document.getElementById('tmr').style.color = sec <= 300 ? 'var(--color-text-danger)' : 'var(--color-text-primary)';
+    document.getElementById('tmr').textContent = p2(Math.floor(sec / 60)) + ':' + p2(sec % 60);
+    document.getElementById('tmr').style.color = sec <= 300 ? 'var(--c-danger)' : 'var(--c-tp)';
     if (sec < 1800) {
       document.getElementById('seg0').className = 'seg done';
       document.getElementById('seg1').className = 'seg active';
@@ -818,22 +960,9 @@ function tStart() {
   document.getElementById('tbtn-s').style.display = 'none';
   document.getElementById('tbtn-p').style.display = '';
 }
+function tStop() { clearInterval(ti); ti = null; document.getElementById('tbtn-s').style.display = ''; document.getElementById('tbtn-p').style.display = 'none'; }
+function tReset() { tStop(); sec = 3600; document.getElementById('tmr').textContent = '60:00'; document.getElementById('tmr').style.color = 'var(--c-tp)'; document.getElementById('seg0').className = 'seg active'; document.getElementById('seg1').className = 'seg'; }
 
-function tStop() {
-  clearInterval(ti); ti = null;
-  document.getElementById('tbtn-s').style.display = '';
-  document.getElementById('tbtn-p').style.display = 'none';
-}
-
-function tReset() {
-  tStop(); sec = 3600;
-  document.getElementById('tmr').textContent = '60:00';
-  document.getElementById('tmr').style.color = 'var(--color-text-primary)';
-  document.getElementById('seg0').className = 'seg active';
-  document.getElementById('seg1').className = 'seg';
-}
-
-// ── Quiz state ──
 const quizCorrect = new Array(12).fill(false);
 const miniState = [false, false];
 
@@ -842,65 +971,46 @@ function toggleQ(i) {
   const btn = document.getElementById('qbtn-' + i);
   const card = document.getElementById('qcard-' + i);
   if (quizCorrect[i]) {
-    btn.className = 'q-btn on';
-    btn.innerHTML = '<i class="ti ti-check" aria-hidden="true"></i> Acertou';
+    btn.className = 'q-btn on'; btn.innerHTML = '<i class="ti ti-check"></i> Acertou';
     card.classList.add('ok');
   } else {
-    btn.className = 'q-btn';
-    btn.textContent = '○ Acertou';
+    btn.className = 'q-btn'; btn.textContent = '○ Acertou';
     card.classList.remove('ok');
   }
-  renderQuizTotals();
+  renderTotals();
 }
 
 function toggleMini(i) {
   miniState[i] = !miniState[i];
-  const btn = document.getElementById('mini' + i);
-  btn.className = 'mini-toggle' + (miniState[i] ? ' on' : '');
-  renderQuizTotals();
+  document.getElementById('mini' + i).className = 'mini-toggle' + (miniState[i] ? ' on' : '');
+  renderTotals();
 }
 
-function getP1Score() {
-  const qPts = quizCorrect.filter(Boolean).length * 2.5;
-  const mPts = miniState.filter(Boolean).length * 5;
-  return Math.round((qPts + mPts) * 10) / 10;
+function getP1() {
+  return Math.round((quizCorrect.filter(Boolean).length * 2.5 + miniState.filter(Boolean).length * 5) * 10) / 10;
 }
 
-function renderQuizTotals() {
+function renderTotals() {
   const correct = quizCorrect.filter(Boolean).length;
-  const p1 = getP1Score();
-  document.getElementById('quiz-running').textContent = correct + '/12 corretas · ' + p1 + '/40 pts';
+  const p1 = getP1();
+  document.getElementById('quiz-running').textContent = correct + ' / 12 corretas · ' + p1 + ' / 40 pts';
   document.getElementById('quiz-p1-total').textContent = p1 + ' / 40 pts';
+  document.getElementById('quiz-bar').style.width = Math.round((correct / 12) * 100) + '%';
   document.getElementById('sc-p1-display').textContent = p1;
   calcFinal();
 }
 
-// ── Final rubrica calc ──
 function calcFinal() {
-  const p1 = getP1Score();
+  const p1 = getP1();
   const t = Math.min(50, Math.max(0, parseInt(document.getElementById('sc-trilha').value) || 0));
   const x = Math.min(10, Math.max(0, parseInt(document.getElementById('sc-bonus').value) || 0));
   const total = Math.round((p1 + t + x) * 10) / 10;
   document.getElementById('sc-total').textContent = total + ' / 100';
-
   const v = document.getElementById('sc-veredicto');
-  if (total >= 70 && t >= 38) {
-    v.style.background = 'var(--color-background-success)';
-    v.style.color = 'var(--color-text-success)';
-    v.textContent = '✓ Aprovado pleno — avançar para entrevista cultural';
-  } else if (total >= 50 && t >= 40) {
-    v.style.background = 'var(--color-background-info)';
-    v.style.color = 'var(--color-text-info)';
-    v.textContent = '→ Especialista de trilha — aprovado com ressalva, acompanhar gaps nas outras disciplinas';
-  } else if (total >= 50) {
-    v.style.background = 'var(--color-background-warning)';
-    v.style.color = 'var(--color-text-warning)';
-    v.textContent = '⚠ Potencial com gaps — considerar entrevista adicional antes de decidir';
-  } else {
-    v.style.background = 'var(--color-background-danger)';
-    v.style.color = 'var(--color-text-danger)';
-    v.textContent = '✗ Reprovado — base insuficiente, recomendar preparo de 60–90 dias e nova tentativa';
-  }
+  if (total >= 70 && t >= 38) { v.style.cssText = 'background:rgba(52,211,153,0.1);color:#34d399;border:1px solid rgba(52,211,153,0.2);border-radius:8px;padding:8px 12px;font-size:13px'; v.textContent = '✓ Aprovado pleno — avançar para entrevista cultural'; }
+  else if (total >= 50 && t >= 40) { v.style.cssText = 'background:rgba(102,147,248,0.1);color:#6693f8;border:1px solid rgba(102,147,248,0.2);border-radius:8px;padding:8px 12px;font-size:13px'; v.textContent = '→ Especialista de trilha — aprovado com ressalva'; }
+  else if (total >= 50) { v.style.cssText = 'background:rgba(251,191,36,0.1);color:#fbbf24;border:1px solid rgba(251,191,36,0.2);border-radius:8px;padding:8px 12px;font-size:13px'; v.textContent = '⚠ Potencial com gaps — considerar entrevista adicional'; }
+  else { v.style.cssText = 'background:rgba(239,68,68,0.1);color:#f87171;border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:8px 12px;font-size:13px'; v.textContent = '✗ Reprovado — base insuficiente, recomendar 60–90 dias de preparo'; }
 }
 </script>
 </body>
