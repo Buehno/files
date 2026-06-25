@@ -294,9 +294,11 @@ pre code{background:none;border:none;padding:0;font-size:12.5px;line-height:1.7}
 .q-num{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c-tt);margin-bottom:6px}
 .q-text{font-size:13px;font-weight:500;color:var(--c-tp);line-height:1.55;margin-bottom:.875rem}
 .q-opts{display:grid;gap:3px;margin-bottom:.875rem}
-.q-opt{display:flex;align-items:baseline;gap:9px;font-size:13px;color:var(--c-ts);padding:5px 10px;border-radius:8px;transition:background .15s}
+.q-opt{display:flex;align-items:baseline;gap:9px;font-size:13px;color:var(--c-ts);padding:5px 10px;border-radius:8px;transition:background .15s;cursor:pointer;user-select:none}
 .q-opt:hover{background:rgba(255,255,255,0.025)}
 .q-opt.correct{background:rgba(52,211,153,0.08);color:#34d399;font-weight:500;border:1px solid rgba(52,211,153,0.18)}
+.q-opt.wrong{background:rgba(248,113,113,0.08);color:#f87171;font-weight:500;border:1px solid rgba(248,113,113,0.18)}
+.q-opt.locked{pointer-events:none}
 .q-lbl{font-weight:700;font-size:10.5px;min-width:16px;color:var(--c-tt);flex-shrink:0}
 .q-opt.correct .q-lbl{color:#34d399}
 .q-btn{font-size:12px;font-weight:600;padding:5px 14px;border-radius:9999px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);color:var(--c-tt);cursor:pointer;transition:all .15s}
@@ -565,11 +567,10 @@ ORDER BY total_gasto DESC;</code></pre>
     <div class="q-text">Qual exceção é lançada ao executar <code>calcular_media([])</code> onde <code>def calcular_media(l): return sum(l) / len(l)</code>?</div>
     <div class="q-opts">
       <div class="q-opt"><span class="q-lbl">A</span><code>ValueError: empty sequence</code></div>
-      <div class="q-opt correct"><span class="q-lbl">B</span><code>ZeroDivisionError</code></div>
+      <div class="q-opt"><span class="q-lbl">B</span><code>ZeroDivisionError</code></div>
       <div class="q-opt"><span class="q-lbl">C</span><code>IndexError: list index out of range</code></div>
       <div class="q-opt"><span class="q-lbl">D</span>Retorna <code>0</code> sem lançar exceção</div>
     </div>
-    <button class="q-btn" id="qbtn-0" onclick="toggleQ(0)">○ Acertou</button>
   </div>
 
   <div class="q-card" id="qcard-1">
@@ -577,11 +578,10 @@ ORDER BY total_gasto DESC;</code></pre>
     <div class="q-text">Qual é o propósito do decorador <code>@dataclass</code> em Python?</div>
     <div class="q-opts">
       <div class="q-opt"><span class="q-lbl">A</span>Tornar a classe imutável (frozen)</div>
-      <div class="q-opt correct"><span class="q-lbl">B</span>Gerar automaticamente <code>__init__</code>, <code>__repr__</code> e <code>__eq__</code> com base nos atributos tipados</div>
+      <div class="q-opt"><span class="q-lbl">B</span>Gerar automaticamente <code>__init__</code>, <code>__repr__</code> e <code>__eq__</code> com base nos atributos tipados</div>
       <div class="q-opt"><span class="q-lbl">C</span>Serializar a classe diretamente para JSON</div>
       <div class="q-opt"><span class="q-lbl">D</span>Adicionar suporte a herança múltipla sem conflito de MRO</div>
     </div>
-    <button class="q-btn" id="qbtn-1" onclick="toggleQ(1)">○ Acertou</button>
   </div>
 
   <div class="q-card" id="qcard-2">
@@ -590,10 +590,9 @@ ORDER BY total_gasto DESC;</code></pre>
     <div class="q-opts">
       <div class="q-opt"><span class="q-lbl">A</span><code>if response == 200:</code></div>
       <div class="q-opt"><span class="q-lbl">B</span><code>if not response.error:</code></div>
-      <div class="q-opt correct"><span class="q-lbl">C</span><code>response.raise_for_status()</code> ou <code>if response.ok:</code></div>
+      <div class="q-opt"><span class="q-lbl">C</span><code>response.raise_for_status()</code> ou <code>if response.ok:</code></div>
       <div class="q-opt"><span class="q-lbl">D</span><code>try: requests.get(url) except HTTPError:</code></div>
     </div>
-    <button class="q-btn" id="qbtn-2" onclick="toggleQ(2)">○ Acertou</button>
   </div>
 
   <div class="q-card" id="qcard-3">
@@ -601,11 +600,10 @@ ORDER BY total_gasto DESC;</code></pre>
     <div class="q-text">Por que <code>json.dumps(meu_objeto)</code> lança <code>TypeError</code> com uma instância de classe customizada?</div>
     <div class="q-opts">
       <div class="q-opt"><span class="q-lbl">A</span>Strings precisam ser codificadas em UTF-8 antes</div>
-      <div class="q-opt correct"><span class="q-lbl">B</span><code>json.dumps</code> só serializa tipos nativos Python (dict, list, str, int, float, bool, None)</div>
+      <div class="q-opt"><span class="q-lbl">B</span><code>json.dumps</code> só serializa tipos nativos Python (dict, list, str, int, float, bool, None)</div>
       <div class="q-opt"><span class="q-lbl">C</span>É necessário usar <code>from json import dumps</code></div>
       <div class="q-opt"><span class="q-lbl">D</span><code>json.dumps</code> só aceita dicionários, não listas ou objetos</div>
     </div>
-    <button class="q-btn" id="qbtn-3" onclick="toggleQ(3)">○ Acertou</button>
   </div>
 
   <span class="q-area-lbl q-area-ai"><i class="ti ti-brain"></i>IA Generativa + LLM · 4 questões</span>
@@ -615,11 +613,10 @@ ORDER BY total_gasto DESC;</code></pre>
     <div class="q-text">O que é RAG (Retrieval-Augmented Generation)?</div>
     <div class="q-opts">
       <div class="q-opt"><span class="q-lbl">A</span>Técnica de fine-tuning de LLMs com dados rotulados via RLHF</div>
-      <div class="q-opt correct"><span class="q-lbl">B</span>Arquitetura que combina busca semântica em base de conhecimento com geração de texto por LLM</div>
+      <div class="q-opt"><span class="q-lbl">B</span>Arquitetura que combina busca semântica em base de conhecimento com geração de texto por LLM</div>
       <div class="q-opt"><span class="q-lbl">C</span>Modelo de linguagem especializado em recuperação de documentos</div>
       <div class="q-opt"><span class="q-lbl">D</span>Framework de avaliação de qualidade de respostas de IA</div>
     </div>
-    <button class="q-btn" id="qbtn-4" onclick="toggleQ(4)">○ Acertou</button>
   </div>
 
   <div class="q-card" id="qcard-5">
@@ -628,10 +625,9 @@ ORDER BY total_gasto DESC;</code></pre>
     <div class="q-opts">
       <div class="q-opt"><span class="q-lbl">A</span>Arquivo binário compactado de documentos indexados</div>
       <div class="q-opt"><span class="q-lbl">B</span>Índice invertido de palavras-chave de um corpus</div>
-      <div class="q-opt correct"><span class="q-lbl">C</span>Representação numérica densa de texto que captura significado semântico</div>
+      <div class="q-opt"><span class="q-lbl">C</span>Representação numérica densa de texto que captura significado semântico</div>
       <div class="q-opt"><span class="q-lbl">D</span>Hash criptográfico para deduplicação de documentos</div>
     </div>
-    <button class="q-btn" id="qbtn-5" onclick="toggleQ(5)">○ Acertou</button>
   </div>
 
   <div class="q-card" id="qcard-6">
@@ -639,11 +635,10 @@ ORDER BY total_gasto DESC;</code></pre>
     <div class="q-text">O que é <em>chunking</em> no pipeline de processamento de documentos para RAG?</div>
     <div class="q-opts">
       <div class="q-opt"><span class="q-lbl">A</span>Compressão de PDFs para reduzir espaço em cloud</div>
-      <div class="q-opt correct"><span class="q-lbl">B</span>Divisão de documentos em fragmentos menores para indexação e recuperação eficiente</div>
+      <div class="q-opt"><span class="q-lbl">B</span>Divisão de documentos em fragmentos menores para indexação e recuperação eficiente</div>
       <div class="q-opt"><span class="q-lbl">C</span>Agrupamento de documentos similares em clusters via k-means</div>
       <div class="q-opt"><span class="q-lbl">D</span>Criptografia de dados sensíveis antes do armazenamento vetorial</div>
     </div>
-    <button class="q-btn" id="qbtn-6" onclick="toggleQ(6)">○ Acertou</button>
   </div>
 
   <div class="q-card" id="qcard-7">
@@ -651,11 +646,10 @@ ORDER BY total_gasto DESC;</code></pre>
     <div class="q-text">O que descreve corretamente o problema de <em>alucinação</em> em LLMs em produção?</div>
     <div class="q-opts">
       <div class="q-opt"><span class="q-lbl">A</span>Modelo para de responder por excesso de requisições concorrentes</div>
-      <div class="q-opt correct"><span class="q-lbl">B</span>Modelo gera informações factualmente incorretas com aparente confiança</div>
+      <div class="q-opt"><span class="q-lbl">B</span>Modelo gera informações factualmente incorretas com aparente confiança</div>
       <div class="q-opt"><span class="q-lbl">C</span>Modelo copia literalmente trechos dos documentos sem adaptar</div>
       <div class="q-opt"><span class="q-lbl">D</span>Modelo recusa responder por violar políticas de segurança do provider</div>
     </div>
-    <button class="q-btn" id="qbtn-7" onclick="toggleQ(7)">○ Acertou</button>
   </div>
 
   <span class="q-area-lbl q-area-sq"><i class="ti ti-database"></i>SQL + Git · 4 questões</span>
@@ -665,11 +659,10 @@ ORDER BY total_gasto DESC;</code></pre>
     <div class="q-text">Na query <code>SELECT fornecedor, SUM(valor) FROM pedidos WHERE SUM(valor) &gt; 10000 GROUP BY fornecedor</code>, qual é o erro lógico?</div>
     <div class="q-opts">
       <div class="q-opt"><span class="q-lbl">A</span><code>GROUP BY</code> deve vir antes de <code>WHERE</code></div>
-      <div class="q-opt correct"><span class="q-lbl">B</span>Funções de agregação não podem ser usadas em <code>WHERE</code> — deve-se usar <code>HAVING</code></div>
+      <div class="q-opt"><span class="q-lbl">B</span>Funções de agregação não podem ser usadas em <code>WHERE</code> — deve-se usar <code>HAVING</code></div>
       <div class="q-opt"><span class="q-lbl">C</span><code>SUM(valor)</code> não é compatível com <code>GROUP BY fornecedor</code></div>
       <div class="q-opt"><span class="q-lbl">D</span>Falta <code>ORDER BY</code> para a query funcionar</div>
     </div>
-    <button class="q-btn" id="qbtn-8" onclick="toggleQ(8)">○ Acertou</button>
   </div>
 
   <div class="q-card" id="qcard-9">
@@ -677,11 +670,10 @@ ORDER BY total_gasto DESC;</code></pre>
     <div class="q-text">Diferença principal entre <code>INNER JOIN</code> e <code>LEFT JOIN</code>?</div>
     <div class="q-opts">
       <div class="q-opt"><span class="q-lbl">A</span><code>INNER JOIN</code> é otimizado para grandes volumes; <code>LEFT JOIN</code> para tabelas pequenas</div>
-      <div class="q-opt correct"><span class="q-lbl">B</span><code>LEFT JOIN</code> retorna todos os registros da tabela esquerda, com <code>NULL</code> onde não há correspondência</div>
+      <div class="q-opt"><span class="q-lbl">B</span><code>LEFT JOIN</code> retorna todos os registros da tabela esquerda, com <code>NULL</code> onde não há correspondência</div>
       <div class="q-opt"><span class="q-lbl">C</span><code>INNER JOIN</code> trata colunas <code>NULL</code>; <code>LEFT JOIN</code> as ignora</div>
       <div class="q-opt"><span class="q-lbl">D</span>São equivalentes, apenas com sintaxes diferentes</div>
     </div>
-    <button class="q-btn" id="qbtn-9" onclick="toggleQ(9)">○ Acertou</button>
   </div>
 
   <div class="q-card" id="qcard-10">
@@ -690,10 +682,9 @@ ORDER BY total_gasto DESC;</code></pre>
     <div class="q-opts">
       <div class="q-opt"><span class="q-lbl">A</span>Cria cópia da <code>main</code> com nome <code>feature-rebase</code></div>
       <div class="q-opt"><span class="q-lbl">B</span>Reverte commits da <code>feature</code> ao estado da <code>main</code></div>
-      <div class="q-opt correct"><span class="q-lbl">C</span>Recria os commits da <code>feature</code> sobre o topo atual da <code>main</code>, linearizando o histórico</div>
+      <div class="q-opt"><span class="q-lbl">C</span>Recria os commits da <code>feature</code> sobre o topo atual da <code>main</code>, linearizando o histórico</div>
       <div class="q-opt"><span class="q-lbl">D</span>Mescla <code>feature</code> na <code>main</code> criando commit de merge</div>
     </div>
-    <button class="q-btn" id="qbtn-10" onclick="toggleQ(10)">○ Acertou</button>
   </div>
 
   <div class="q-card" id="qcard-11">
@@ -702,10 +693,9 @@ ORDER BY total_gasto DESC;</code></pre>
     <div class="q-opts">
       <div class="q-opt"><span class="q-lbl">A</span><code>update: code changes in queries module</code></div>
       <div class="q-opt"><span class="q-lbl">B</span><code>COMMIT — alteração no módulo de pedidos v2</code></div>
-      <div class="q-opt correct"><span class="q-lbl">C</span><code>feat: adiciona filtro de fornecedores por categoria de risco</code></div>
+      <div class="q-opt"><span class="q-lbl">C</span><code>feat: adiciona filtro de fornecedores por categoria de risco</code></div>
       <div class="q-opt"><span class="q-lbl">D</span><code>fixed bug in supplier queries</code></div>
     </div>
-    <button class="q-btn" id="qbtn-11" onclick="toggleQ(11)">○ Acertou</button>
   </div>
 
   <div class="sec-lbl">Mini-desafio integrador · 10 pts</div>
@@ -925,7 +915,37 @@ CREATE TABLE fornecedores (
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', () => hljs.highlightAll());
+/* gabarito: índice 0-based da opção correta em cada questão (P1→P4, IA1→IA4, S1→S4) */
+const correctAnswers = [1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 2, 2];
+const quizCorrect  = new Array(12).fill(false);
+const quizAnswered = new Array(12).fill(false);
+const miniState    = [false, false];
+
+document.addEventListener('DOMContentLoaded', () => {
+  hljs.highlightAll();
+
+  document.querySelectorAll('.q-card[id^="qcard-"]').forEach(card => {
+    const qIndex = parseInt(card.id.replace('qcard-', ''));
+    card.querySelector('.q-opts').addEventListener('click', e => {
+      const opt = e.target.closest('.q-opt');
+      if (!opt || quizAnswered[qIndex]) return;
+      const opts = Array.from(card.querySelectorAll('.q-opt'));
+      const optIndex = opts.indexOf(opt);
+      quizAnswered[qIndex] = true;
+      opts.forEach(o => o.classList.add('locked'));
+      const isCorrect = optIndex === correctAnswers[qIndex];
+      quizCorrect[qIndex] = isCorrect;
+      if (isCorrect) {
+        opt.classList.add('correct');
+        card.classList.add('ok');
+      } else {
+        opt.classList.add('wrong');
+        opts[correctAnswers[qIndex]].classList.add('correct');
+      }
+      renderTotals();
+    });
+  });
+});
 
 function go(i, btn) {
   document.querySelectorAll('.pg').forEach(p => p.classList.remove('show'));
@@ -962,23 +982,6 @@ function tStart() {
 }
 function tStop() { clearInterval(ti); ti = null; document.getElementById('tbtn-s').style.display = ''; document.getElementById('tbtn-p').style.display = 'none'; }
 function tReset() { tStop(); sec = 3600; document.getElementById('tmr').textContent = '60:00'; document.getElementById('tmr').style.color = 'var(--c-tp)'; document.getElementById('seg0').className = 'seg active'; document.getElementById('seg1').className = 'seg'; }
-
-const quizCorrect = new Array(12).fill(false);
-const miniState = [false, false];
-
-function toggleQ(i) {
-  quizCorrect[i] = !quizCorrect[i];
-  const btn = document.getElementById('qbtn-' + i);
-  const card = document.getElementById('qcard-' + i);
-  if (quizCorrect[i]) {
-    btn.className = 'q-btn on'; btn.innerHTML = '<i class="ti ti-check"></i> Acertou';
-    card.classList.add('ok');
-  } else {
-    btn.className = 'q-btn'; btn.textContent = '○ Acertou';
-    card.classList.remove('ok');
-  }
-  renderTotals();
-}
 
 function toggleMini(i) {
   miniState[i] = !miniState[i];
